@@ -2,7 +2,7 @@ import React from 'react';
 import './portfolio.css';
 import IMG1 from '../../assets/arklys.jpg';
 import IMG2 from '../../assets/arklys.jpg';
-import IMG3 from '../../assets/portfolio3.jpg';
+import IMG3 from '../../assets/lektuvas.png';
 import IMG4 from '../../assets/portfolio4.jpg';
 import IMG5 from '../../assets/portfolio5.png';
 import IMG6 from '../../assets/portfolio6.jpg';
@@ -27,9 +27,9 @@ const data = [
   {
     id: 3,
     image: IMG3,
-    title: 'Figma dashboard UI kit for data design web apps',
+    title: 'Crimson Sky Firestorm Arena on windows',
     github: 'https://github.com',
-    demo: 'https://dribbble.com/shots/17290917-Eclipse-Figma-dashboard-UI-kit-for-data-design-web-apps'
+    demo: 'https://manthispoc.gumroad.com/l/dinhw'
   },
   {
     id: 4,
