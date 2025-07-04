@@ -3,7 +3,7 @@ import './portfolio.css';
 import IMG1 from '../../assets/arklys.jpg';
 import IMG2 from '../../assets/arklys.jpg';
 import IMG3 from '../../assets/lektuvas.png';
-import IMG4 from '../../assets/Lenktyniauk.jpg';
+import IMG4 from '../../assets/Lenktynės.jpg';
 import IMG5 from '../../assets/portfolio5.png';
 import IMG6 from '../../assets/portfolio6.jpg';
 
