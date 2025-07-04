@@ -13,7 +13,7 @@ const data = [
   {
     id: 1,
     image: IMG1,
-    title: 'Cheerful horse on adroid',
+    title: 'Cheerful horse on android',
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/epptjq'
   },
