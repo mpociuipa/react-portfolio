@@ -34,7 +34,7 @@ const data = [
   {
     id: 4,
     image: IMG4,
-    title: '3D Race game on PC',
+    title: '3D Race game on windows',
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/cxsns'
   },
