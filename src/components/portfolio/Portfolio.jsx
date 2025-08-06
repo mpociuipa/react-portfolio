@@ -4,7 +4,7 @@ import IMG1 from '../../assets/arklys.jpg';
 import IMG2 from '../../assets/arklys.jpg';
 import IMG3 from '../../assets/lektuvas.png';
 import IMG4 from '../../assets/Lenktynės.jpg';
-import IMG5 from '../../assets/portfolio5.png';
+import IMG5 from '../../assets/Lenktynės.jpg';
 import IMG6 from '../../assets/portfolio6.jpg';
 
 // DO NOT USE THE IMAGES IN PRODUCTION
@@ -41,9 +41,9 @@ const data = [
   {
     id: 5,
     image: IMG5,
-    title: 'Charts templates & infographics in Figma',
+    title: '3D Race game on android',
     github: 'https://github.com',
-    demo: 'https://dribbble.com/shots/16541289-Orion-UI-kit-Charts-templates-infographics-in=Figma'
+    demo: 'https://manthispoc.gumroad.com/l/zlsam'
   },
   {
     id: 6,
