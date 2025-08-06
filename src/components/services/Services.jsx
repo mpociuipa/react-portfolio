@@ -16,23 +16,23 @@ const Services = () => {
           <ul className="service__list">
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p>The UI/UX design balances technical 3D realism with a minimalist user interface. Attention to detail – from fallback geometry to dynamic model movement – ensures that the game is not only playable, but also visually and emotionally experienced.</p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p></p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p></p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p></p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p></p>
             </li>
           </ul>
         </article>
@@ -44,31 +44,43 @@ const Services = () => {
           <ul className="service__list">
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p>Web Development – what is it?
+Web Development – is the process of creating and maintaining websites and web applications. It includes technical programming, design implementation and server-side logic development.</p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p>Web Development is divided into:
+Front-end (user interface):
+Creates what the user sees and interacts with.
+Uses: HTML, CSS, JavaScript, React, Vue, Tailwind, etc.
+Back-end (server-side):
+Manages databases, authentication, APIs and logic.
+Uses: Node.js, Python (FastAPI, Django), PHP, Java, MySQL, MongoDB.
+Full-stack:
+Combines front-end and back-end skills.</p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p>Additional areas:
+DevOps – implementation and infrastructure management.
+UI/UX Design – convenient and effective user experience.
+Mobile Web – websites and applications adapted for mobile.</p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p></p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p></p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p></p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p></p>
             </li>
           </ul>
         </article>
@@ -80,27 +92,27 @@ const Services = () => {
           <ul className="service__list">
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p>Content Creation is a creative process that allows you to convey a message, create value, or evoke emotion through digital content, adapting to the audience and platform.</p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p></p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p></p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p></p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p></p>
             </li>
             <li>
               <BiCheck className='service__list-icon' />
-              <p>Lorem ipsum dolor sit amet consectetu elit.</p>
+              <p></p>
             </li>
           </ul>
         </article>
