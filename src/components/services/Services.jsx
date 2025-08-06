@@ -18,22 +18,6 @@ const Services = () => {
               <BiCheck className='service__list-icon' />
               <p>The UI/UX design balances technical 3D realism with a minimalist user interface. Attention to detail – from fallback geometry to dynamic model movement – ensures that the game is not only playable, but also visually and emotionally experienced.</p>
             </li>
-            /*<li>
-              <BiCheck className='service__list-icon' />
-              <p></p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p></p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p></p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p></p>
-            </li>*/
           </ul>
         </article>
         {/* END OF UI/UX */}
@@ -66,22 +50,6 @@ DevOps – implementation and infrastructure management.
 UI/UX Design – convenient and effective user experience.
 Mobile Web – websites and applications adapted for mobile.</p>
             </li>
-            /*<li>
-              <BiCheck className='service__list-icon' />
-              <p></p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p></p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p></p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p></p>
-            </li>*/
           </ul>
         </article>
         {/* WEB DEVELOPMENT */}
@@ -94,26 +62,6 @@ Mobile Web – websites and applications adapted for mobile.</p>
               <BiCheck className='service__list-icon' />
               <p>Content Creation is a creative process that allows you to convey a message, create value, or evoke emotion through digital content, adapting to the audience and platform.</p>
             </li>
-            /*<li>
-              <BiCheck className='service__list-icon' />
-              <p></p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p></p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p></p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p></p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p></p>
-            </li>*/
           </ul>
         </article>
         {/* END OF CONTENT CREATION */}
