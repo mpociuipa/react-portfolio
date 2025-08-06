@@ -38,7 +38,7 @@ const About = () => {
             </article>
           </div>
 
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum, facere velit. Reiciendis ut totam aut molestias. Tempora illo, et quidem accusantium quasi laudantium eveniet esse, earum nesciunt in alias aliquid!</p>
+          <p>I am a versatile programmer with technical skills in front-end, back-end, and systems. My approach to a project is a full cycle: from vision, design, to deployment on the phone. This type of person is usually called a product developer, not just a "programmer."</p>
           <a href="#contact" className='btn btn-primary'>Let's Talk</a>
         </div>
         </div>
