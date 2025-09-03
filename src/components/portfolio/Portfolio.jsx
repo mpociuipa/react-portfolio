@@ -5,7 +5,7 @@ import IMG2 from '../../assets/arklys.jpg';
 import IMG3 from '../../assets/lektuvas.png';
 import IMG4 from '../../assets/Lenktynės.jpg';
 import IMG5 from '../../assets/Lenktynės.jpg';
-import IMG6 from '../../assets/portfolio6.jpg';
+import IMG6 from '../../assets/Namas.jpg';
 
 // DO NOT USE THE IMAGES IN PRODUCTION
 
@@ -48,9 +48,9 @@ const data = [
   {
     id: 6,
     image: IMG6,
-    title: 'Charts templates & infographics in Figma',
+    title: 'home construction app for Lithuanians',
     github: 'https://github.com',
-    demo: 'https://dribbble.com/shots/15887665-Orion-UI-kit-Charts-templates-infographics-in-Figma'
+    demo: 'https://manthispoc.gumroad.com/l/bbhjs'
   },
 ]
 
