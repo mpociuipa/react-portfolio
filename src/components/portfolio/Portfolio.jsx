@@ -6,7 +6,7 @@ import IMG3 from '../../assets/lektuvas.png';
 import IMG4 from '../../assets/Lenktynės.jpg';
 import IMG5 from '../../assets/Lenktynės.jpg';
 import IMG6 from '../../assets/Namas.jpg';
-
+import IMG7 from '../../assets/nama.jpg';
 // DO NOT USE THE IMAGES IN PRODUCTION
 
 const data = [
@@ -51,6 +51,13 @@ const data = [
     title: 'home construction app for Lithuanians',
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/bbhjs'
+  },
+  {
+    id: 6,
+    image: IMG7,
+    title: 'home construction app on windows (EN)',
+    github: 'https://github.com',
+    demo: 'https://manthispoc.gumroad.com/l/zlfyu'
   },
 ]
 
