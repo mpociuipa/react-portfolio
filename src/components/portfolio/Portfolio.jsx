@@ -63,7 +63,7 @@ const data = [
    {
     id: 7,
     image: IMG8,
-    title: 'Išmok programuoti Javascript, Python, Duomenų bazęs (LT)',
+    title: 'Išmok programuoti Javascript, Python, Duomenų bazęs ant windows (LT)',
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/yvpto'
   },
