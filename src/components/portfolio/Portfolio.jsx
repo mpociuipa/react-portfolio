@@ -7,6 +7,7 @@ import IMG4 from '../../assets/Lenktynės.jpg';
 import IMG5 from '../../assets/Lenktynės.jpg';
 import IMG6 from '../../assets/Namas.jpg';
 import IMG7 from '../../assets/nama.jpg';
+import IMG8 from '../../assets/Javascript.png';
 // DO NOT USE THE IMAGES IN PRODUCTION
 
 const data = [
@@ -58,6 +59,13 @@ const data = [
     title: 'home construction app on windows (EN)',
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/zlfyu'
+  },
+   {
+    id: 7,
+    image: IMG8,
+    title: 'Išmok programuoti Javascript, Python, Duomenų bazęs (LT)',
+    github: 'https://github.com',
+    demo: 'https://manthispoc.gumroad.com/l/yvpto'
   },
 ]
 
