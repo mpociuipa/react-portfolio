@@ -71,7 +71,7 @@ const data = [
     {
     id: 8,
     image: IMG9,
-    title: 'Linux mokymai ant windows (LT)',
+    title: 'Linux mokymai ant windows nemokamai (LT)',
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/zkduwe'
   },
