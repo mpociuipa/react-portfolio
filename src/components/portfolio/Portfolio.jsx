@@ -8,6 +8,7 @@ import IMG5 from '../../assets/Lenktynės.jpg';
 import IMG6 from '../../assets/Namas.jpg';
 import IMG7 from '../../assets/nama.jpg';
 import IMG8 from '../../assets/Javascript.png';
+import IMG9 from '../../assets/linux.png';
 // DO NOT USE THE IMAGES IN PRODUCTION
 
 const data = [
@@ -66,6 +67,13 @@ const data = [
     title: 'Išmok programuoti Javascript, Python, Duomenų bazęs ant windows (LT)',
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/yvpto'
+  },
+    {
+    id: 8,
+    image: IMG9,
+    title: 'Linux mokymai ant windows (LT)',
+    github: 'https://github.com',
+    demo: 'https://manthispoc.gumroad.com/l/zkduwe'
   },
 ]
 
