@@ -33,7 +33,7 @@ const data = [
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/dinhw'
   },
-  {
+  /*{
     id: 4,
     image: IMG4,
     title: '3D Race game on windows',
@@ -46,7 +46,7 @@ const data = [
     title: '3D Race game on android',
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/zlsam'
-  },
+  },*/
   {
     id: 6,
     image: IMG6,
