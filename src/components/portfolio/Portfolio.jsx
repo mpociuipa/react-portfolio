@@ -40,13 +40,13 @@ const data = [
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/svflr'
   },
-  /*{
+  {
     id: 5,
     image: IMG5,
     title: '3D Race game on android',
     github: 'https://github.com',
-    demo: 'https://manthispoc.gumroad.com/l/zlsam'
-  },*/
+    demo: 'https://manthispoc.gumroad.com/l/onqml'
+  },
   {
     id: 6,
     image: IMG6,
