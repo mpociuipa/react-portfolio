@@ -82,7 +82,7 @@ const data = [
     title: 'Crimson Sky Firestorm Arena on android',
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/dpfeuy'
-  },
+  }
 ]
 
 const Portfolio = () => {
