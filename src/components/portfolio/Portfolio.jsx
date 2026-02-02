@@ -56,28 +56,28 @@ const data = [
     demo: 'https://manthispoc.gumroad.com/l/bbhjs'
   },
   {
-    id: 6,
+    id: 7,
     image: IMG7,
     title: 'home construction app on windows (EN)',
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/zlfyu'
   },
    {
-    id: 7,
+    id: 8,
     image: IMG8,
     title: 'Išmok programuoti Javascript, Python, Duomenų bazęs ant windows (LT)',
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/yvpto'
   },
     {
-    id: 8,
+    id: 9,
     image: IMG9,
     title: 'Linux mokymai ant windows nemokamai (LT)',
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/zkduwe'
   },
   {
-    id: 9,
+    id: 10,
     image: IMG10,
     title: 'Crimson Sky Firestorm Arena on android',
     github: 'https://github.com',
