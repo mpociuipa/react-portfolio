@@ -1,3 +1,8 @@
+#portfolio {
+  height: auto;
+  overflow: visible;
+}
+
 .portfolio__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -17,7 +22,7 @@
 
 .portfolio__item-image {
     border-radius: 1.5rem;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .portfolio__item h3 {
