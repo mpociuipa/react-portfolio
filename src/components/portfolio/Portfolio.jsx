@@ -9,7 +9,6 @@ import IMG6 from '../../assets/Namas.jpg';
 import IMG7 from '../../assets/nama.jpg';
 import IMG8 from '../../assets/Javascript.png';
 import IMG9 from '../../assets/linux.png';
-import IMG10 from '../../assets/lektuvas.png';
 // DO NOT USE THE IMAGES IN PRODUCTION
 
 const data = [
@@ -78,7 +77,7 @@ const data = [
   },
   {
     id: 10,
-    image: IMG10,
+    image: IMG3,
     title: 'Crimson Sky Firestorm Arena on android',
     github: 'https://github.com',
     demo: 'https://manthispoc.gumroad.com/l/dpfeuy'
