@@ -17,7 +17,7 @@
 
 .portfolio__item-image {
     border-radius: 1.5rem;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .portfolio__item h3 {
@@ -28,10 +28,7 @@
     gap: 1rem;
     margin-bottom: 1rem;
 }
-#portfolio {
-  min-height: 100vh;
-  overflow-y: auto;
-}
+
 
 /* ===== MEDIA QUERIES (MEDIUM DEVICES) ========= */
 @media screen and (max-width: 1024px) {
