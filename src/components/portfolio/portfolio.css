@@ -28,6 +28,11 @@
     gap: 1rem;
     margin-bottom: 1rem;
 }
+#portfolio {
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
 /* ===== MEDIA QUERIES (MEDIUM DEVICES) ========= */
 @media screen and (max-width: 1024px) {
     .portfolio__container {
