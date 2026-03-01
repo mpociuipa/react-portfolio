@@ -88,7 +88,7 @@ header {
 
   .me {
     width: clamp(22rem, 24vw, 26rem);
-    height: clamp(30rem, 54vh, 36rem);
+    height: clamp(34rem, 54vh, 38rem);
     padding: clamp(4.5rem, 6vh, 6rem) 1.7rem 1.7rem;
   }
 
@@ -114,7 +114,7 @@ header {
 /* ===== ULTRA-WIDE (>=1920px) ===== */
 @media screen and (min-width: 1920px) {
   .header__hero {
-    min-height: clamp(34rem, 50vh, 42rem);
+    min-height: clamp(34rem, 54vh, 40rem);
   }
 
   .me {
