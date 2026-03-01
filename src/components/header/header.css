@@ -106,7 +106,7 @@ header {
   gap: 0.8rem;
 
   position: absolute;
-  left: clamp(2rem, 6vw, 8rem);
+  left: clamp(5rem, 6vw, 12rem);
   top: 50%;
   transform: translateY(-50%);
 }
@@ -120,7 +120,7 @@ header {
 
 .scroll__down {
   position: absolute;
-  right: clamp(2rem, 6vw, 8rem);
+  right: clamp(5rem, 6vw, 12rem);
   top: 50%;
   transform: translateY(-50%) rotate(90deg);
   font-weight: 300;
@@ -142,11 +142,11 @@ header {
   }
 
   .header__socials {
-    left: clamp(1.5rem, 4vw, 4rem);
+    left: clamp(5rem, 6vw, 12rem);
   }
 
   .scroll__down {
-    right: clamp(1.5rem, 4vw, 4rem);
+    right: clamp(5rem, 6vw, 12rem);
   }
 }
 
@@ -164,6 +164,13 @@ header {
   .me {
     width: 28rem;
     height: 40rem;
+  }
+  .header__socials {
+    left: clamp(5rem, 6vw, 12rem);
+  }
+
+  .scroll__down {
+    right: clamp(5rem, 6vw, 12rem);
   }
 }
 
