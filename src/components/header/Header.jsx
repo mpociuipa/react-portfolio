@@ -16,33 +16,24 @@ const Header = () => {
 
   return (
     <header id="header">
-      <div className="container header__container">
-        <h5>Hello I'm</h5>
-        <h1>Mantas Počiuipa</h1>
+      <div className="header__top">
+  <h5>Hello I'm</h5>
+  <h1>Mantas Počiuipa</h1>
 
-        <h5 className="text-light header__skills">
-  {skills.map((skill, index) => (
-    <span key={index} className="header__skill-line">
-      {skill}
-    </span>
-  ))}
-</h5>
+  <h5 className="text-light header__skills">
+    {skills.map((skill, index) => (
+      <span key={index} className="header__skill-line">{skill}</span>
+    ))}
+  </h5>
 
-        <CTA />
+  <CTA />
+</div>
 
-        {/* HERO GROUP (pririšam viską prie nuotraukos) */}
-        <div className="header__hero">
-          <HeaderSocial />
-
-          <div className="me">
-            <img src={ME} alt="3D game" />
-          </div>
-
-          <a href="#contact" className="scroll__down">
-            Scroll Down
-          </a>
-        </div>
-      </div>
+<div className="header__hero">
+  <HeaderSocial />
+  <div className="me"><img src={ME} alt="3D game" /></div>
+  <a href="#contact" className="scroll__down">Scroll Down</a>
+</div>
     </header>
   );
 };
