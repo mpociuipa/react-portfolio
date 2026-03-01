@@ -39,7 +39,7 @@ header {
   height: clamp(22rem, 55vh, 30rem);
   position: absolute;
   left: 50%;
-  top: 4rem;                 /* vietoj margin-top */
+  top: 4rem;
   transform: translateX(-50%);
   border-radius: 12rem 12rem 0 0;
   overflow: hidden;
@@ -56,22 +56,21 @@ header {
 }
 /* ===== MEDIA QUERIES (MEDIUM DEVICES) ========= */
 @media screen and (max-width: 1024px) {
-    header {
-        height: 68vh;
-    }
-}
-@media screen and (max-width: 768px) {
-    header {
-        height: 68vh;
-    }
 
-    .me {
-        width: 18rem;
-        height: 24rem;
-        margin-top: 2rem;
-        padding: 3.5rem 1.2rem 1.2rem 1.2rem;
-        /* NELIEČIAM left ir transform */
-    }
+  header {
+    height: auto;          /* labai svarbu */
+    padding-bottom: 4rem;  /* kad būtų vietos */
+  }
+
+  .me {
+    position: relative;    /* vietoj absolute */
+    left: auto;
+    top: auto;
+    transform: none;
+
+    margin: 3rem auto 0 auto; /* centruoja */
+  }
+
 }
 
 /* ===== MEDIA QUERIES (SMALL DEVICES) ========= */
