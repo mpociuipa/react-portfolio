@@ -69,28 +69,32 @@ const Experience = () => {
           </div>
         </div>
 
+      
         {/* HYBRID SECTION */}
         <div className="experience__hybrid">
-          <h3>Desktop / Hybrid Applications</h3>
-          <div className="experience__content">
+        <h3>Desktop / Hybrid Applications</h3>
+        <div className="experience__content">
 
-            {[
-              "Electron",
-              "Web-to-Desktop Conversion",
-              "Executable Builds (.exe)",
-              "Basic Desktop Architecture"
-            ].map(skill => (
-              <article key={skill} className='experience__details'>
-                <BsPatchCheckFill className='experience__details-icon' />
-                <div>
-                  <h4>{skill}</h4>
-                  <small className='text-light'>Intermediate</small>
-                </div>
-              </article>
-            ))}
-
-          </div>
+    {[
+      "Electron (Desktop Apps)",
+      "Web-to-Desktop Conversion",
+      "Executable Builds (.exe / installers)",
+      "Capacitor (Web → iOS Wrapper)",
+      "iOS Application Builds (.ipa) via CI (GitHub Actions + macOS runners)",
+      "iOS Packaging & Signing Workflow (App Store / TestFlight ready)",
+      "Basic Desktop Architecture"
+    ].map(skill => (
+      <article key={skill} className='experience__details'>
+        <BsPatchCheckFill className='experience__details-icon' />
+        <div>
+          <h4>{skill}</h4>
+          <small className='text-light'>Applied</small>
         </div>
+      </article>
+    ))}
+
+  </div>
+</div>
 
         {/* BACKEND SECTION */}
         <div className="experience__backend">
