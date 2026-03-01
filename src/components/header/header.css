@@ -22,9 +22,11 @@ header {
 .header__hero {
   position: relative;
   width: 100%;
-  /* hero aukštis prisitaiko, kad .me nešokinėtų */
-  height: clamp(28rem, 62vh, 36rem);
+  position: relative;
+  width: 100%;
+  min-height: clamp(28rem, 52vh, 34rem);
   margin-top: clamp(1.5rem, 3vh, 2.5rem);
+
 }
 
 /* ME – centruojam hero viduje, ir aukštį valdome per clamp */
@@ -35,7 +37,7 @@ header {
 
   position: absolute;
   left: 50%;
-  top: 0;
+  bottom: 0;
   transform: translateX(-50%);
 
   border-radius: 12rem 12rem 0 0;
@@ -80,8 +82,8 @@ header {
 /* ===== LARGE SCREENS (>=1440px) ===== */
 @media screen and (min-width: 1440px) {
   .header__hero {
-    height: clamp(34rem, 62vh, 44rem);
-    margin-top: clamp(2rem, 3.5vh, 3rem);
+    min-height: clamp(32rem, 52vh, 40rem);
+    margin-top: clamp(1.5rem, 2.5vh, 2.5rem);
   }
 
   .me {
@@ -112,7 +114,7 @@ header {
 /* ===== ULTRA-WIDE (>=1920px) ===== */
 @media screen and (min-width: 1920px) {
   .header__hero {
-    height: clamp(38rem, 60vh, 48rem);
+    min-height: clamp(34rem, 50vh, 42rem);
   }
 
   .me {
@@ -185,13 +187,4 @@ header {
     white-space: nowrap;
   }
 }
-@media screen and (min-width: 1025px) {
-  .header__container h5.text-light {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.25rem 1.25rem;
-    justify-items: center;
-    margin: 0.8rem auto 0;
-    max-width: 42rem;
-  }
-}
+
