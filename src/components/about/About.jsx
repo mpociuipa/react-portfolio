@@ -14,7 +14,18 @@ const About = () => {
       <div className="container about__container">
         <div className="about__me">
           <div className="about__me-image">
-            <img src={ME} alt="Mantas Počiuipa" />
+            <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="about__video"
+            aria-label="Mantas Počiuipa"
+            poster={ME}  // fallback jei video neužsikrauna
+            >
+            <source src={require('../../assets/about-video.mp4')} type="video/mp4" />
+            Your browser does not support the video tag.
+            </video>
           </div>
         </div>
         <div className="about__content">
