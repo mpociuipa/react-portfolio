@@ -57,8 +57,9 @@ header {
 /* Scroll text */
 .scroll__down {
   position: absolute;
-  right: -2.3rem;
-  bottom: 5rem;
+  right: clamp(1rem, 4vw, 3rem);          /* atstumas nuo kairės */
+  top: 50%;              /* vertikalus centras */
+  transform: translateY(-50%);
   transform: rotate(90deg);
   font-weight: 300;
   font-size: 0.9rem;
