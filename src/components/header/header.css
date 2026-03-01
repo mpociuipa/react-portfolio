@@ -56,30 +56,37 @@ header {
 }
 /* ===== MEDIA QUERIES (MEDIUM DEVICES) ========= */
 @media screen and (max-width: 1024px) {
-
   header {
-    height: auto;          /* labai svarbu */
-    padding-bottom: 4rem;  /* kad būtų vietos */
+    height: auto;
+    padding-bottom: 4rem;
+    overflow: visible;
+  }
+
+  .header__socials,
+  .scroll__down {
+    display: none;
   }
 
   .me {
-    position: relative;    /* vietoj absolute */
+    position: relative;
     left: auto;
     top: auto;
     transform: none;
-
-    margin: 3rem auto 0 auto; /* centruoja */
+    margin: 3rem auto 0;
   }
-
 }
 
-/* ===== MEDIA QUERIES (SMALL DEVICES) ========= */
 @media screen and (max-width: 600px) {
-    header {
-        height: 100vh;
-    }
-    .header__socials,
-    .scroll__down {
-        display: none;
-    }
+  header {
+    height: auto;
+    padding-bottom: 2rem;
+    overflow: visible;
+  }
+
+  .me {
+    width: 70%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    margin-top: 2rem;
+  }
 }
