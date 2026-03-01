@@ -8,14 +8,16 @@ header {
 
 /* Container */
 .header__container {
-  text-align: center;
   min-height: calc(100vh - 7rem);
-
   display: grid;
   grid-template-rows: max-content max-content;
-  row-gap: 1.75rem;
+  row-gap: 1.25rem;
 
-  place-content: center;
+  justify-content: center;
+  align-content: center;   /* mažiau tuščios vietos */
+
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 
   position: relative;
 }
@@ -68,25 +70,25 @@ header {
 .header__hero {
   position: relative;
   width: 100%;
-  height: clamp(28rem, 48vh, 40rem);
+  height: clamp(32rem, 55vh, 46rem);
 }
 
 /* Hero Image / Arc */
 .me {
   background: linear-gradient(var(--color-primary), transparent);
 
-  width: clamp(18rem, 28vw, 22rem);
-  height: clamp(24rem, 52vh, 30rem);
+  width: clamp(22rem, 30vw, 32rem);
+  height: clamp(30rem, 58vh, 44rem);
 
   position: absolute;
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
 
-  border-radius: 12rem 12rem 0 0;
+  border-radius: 14rem 14rem 0 0;
   overflow: hidden;
 
-  padding: clamp(3.5rem, 6vh, 5rem) 1.5rem 1.5rem;
+  padding: clamp(4rem, 6vh, 6rem) 2rem 2rem;
 }
 
 .me img {
@@ -104,7 +106,7 @@ header {
   gap: 0.8rem;
 
   position: absolute;
-  left: clamp(0.5rem, 3vw, 2.5rem);
+  left: clamp(2rem, 6vw, 8rem);
   top: 50%;
   transform: translateY(-50%);
 }
@@ -118,7 +120,7 @@ header {
 
 .scroll__down {
   position: absolute;
-  right: clamp(0.5rem, 3vw, 2.5rem);
+  right: clamp(2rem, 6vw, 8rem);
   top: 50%;
   transform: translateY(-50%) rotate(90deg);
   font-weight: 300;
@@ -150,13 +152,18 @@ header {
 
 @media screen and (min-width: 1920px) {
 
+   .header__container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .header__hero {
-    height: clamp(34rem, 42vh, 44rem);
+    height: 50vh;
   }
 
   .me {
-    width: clamp(24rem, 22vw, 28rem);
-    height: clamp(32rem, 48vh, 38rem);
+    width: 28rem;
+    height: 40rem;
   }
 }
 
