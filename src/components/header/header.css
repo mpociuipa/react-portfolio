@@ -72,6 +72,11 @@ header {
   font-weight: 300;
   font-size: 0.9rem;
 }
+.header__skill-line::before {
+  content: "• ";
+  color: var(--color-primary);
+  margin-right: 0.25rem;
+}
 /* ===== LARGE SCREENS (>=1440px) ===== */
 @media screen and (min-width: 1440px) {
   .header__hero {
