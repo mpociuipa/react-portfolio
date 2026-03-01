@@ -16,6 +16,7 @@ const Header = () => {
 
   return (
     <header id="header">
+      <div className="header__container">
       <div className="header__top">
   <h5>Hello I'm</h5>
   <h1>Mantas Počiuipa</h1>
@@ -34,6 +35,7 @@ const Header = () => {
   <div className="me"><img src={ME} alt="3D game" /></div>
   <a href="#contact" className="scroll__down">Scroll Down</a>
 </div>
+      </div>
     </header>
   );
 };
