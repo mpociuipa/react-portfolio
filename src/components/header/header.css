@@ -25,8 +25,10 @@ header {
   align-items: center;
   gap: 0.8rem;
   position: absolute;
-  left: 0;
-  bottom: 3rem;
+
+  left: clamp(1rem, 4vw, 3rem);          /* atstumas nuo kairės */
+  top: 50%;              /* vertikalus centras */
+  transform: translateY(-50%);
 }
 
 .header__socials::after {
@@ -44,7 +46,7 @@ header {
 
   position: absolute;
   left: 50%;
-  top: clamp(10rem, 18vh, 14rem);            /* vietoj bottom: 0 */
+  top: clamp(12rem, 18vh, 16rem);              /* <- nuleidžia */
   transform: translateX(-50%);
 
   border-radius: 12rem 12rem 0 0;
