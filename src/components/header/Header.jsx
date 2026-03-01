@@ -20,13 +20,13 @@ const Header = () => {
         <h5>Hello I'm</h5>
         <h1>Mantas Počiuipa</h1>
 
-        <h5 className="text-light">
-          {skills.map((skill, index) => (
-            <span key={index} className="header__skill-line">
-              {skill}
-            </span>
-          ))}
-        </h5>
+        <h5 className="text-light header__skills">
+  {skills.map((skill, index) => (
+    <span key={index} className="header__skill-line">
+      {skill}
+    </span>
+  ))}
+</h5>
 
         <CTA />
 
