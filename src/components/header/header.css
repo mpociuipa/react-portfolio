@@ -58,6 +58,11 @@ header {
     header {
         height: 68vh;
     }
+}
+@media screen and (max-width: 768px) {
+    header {
+        height: 68vh;
+    }
     .me {
     width: 18rem;
     height: 24rem;
