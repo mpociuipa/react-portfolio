@@ -1,5 +1,6 @@
 header {
-  height: 100vh;
+  min-height: 100vh;   /* leidžia būti pilno aukščio */
+  height: auto;        /* bet ne priverstinai */
   padding-top: 7rem;
   overflow: hidden;
 }
@@ -82,7 +83,7 @@ header {
 /* ===== LARGE SCREENS (>=1440px) ===== */
 @media screen and (min-width: 1440px) {
   .header__hero {
-    min-height: clamp(32rem, 52vh, 40rem);
+    min-height: clamp(26rem, 48vh, 32rem);
     margin-top: clamp(1.5rem, 2.5vh, 2.5rem);
   }
 
@@ -114,7 +115,7 @@ header {
 /* ===== ULTRA-WIDE (>=1920px) ===== */
 @media screen and (min-width: 1920px) {
   .header__hero {
-    min-height: clamp(34rem, 54vh, 40rem);
+    min-height: clamp(26rem, 48vh, 32rem);
   }
 
   .me {
