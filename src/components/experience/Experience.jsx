@@ -5,84 +5,94 @@ import { BsPatchCheckFill } from 'react-icons/bs';
 const Experience = () => {
   return (
     <section id='experience'>
-      <h5>What Skills I Have</h5>
-      <h2>My Experience</h2>
+  <h5>Technical Expertise</h5>
+  <h2>Engineering Experience</h2>
 
-      <div className="container experience__container">
+  <div className="container experience__container">
 
-        {/* BASIC SECTION */}
-        <div className="experience__basic">
-          <h3>Core Engineering</h3>
-          <div className="experience__content">
+    {/* ENGINEERING FOUNDATIONS */}
+    <div className="experience__section">
+      <h3>Engineering Foundations</h3>
+      <div className="experience__content">
 
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>Git (branching, merge, remote repos)</h4>
-                <small className='text-light'>Experience</small>
-              </div>
-            </article>
+        {[
+          "Git (branching strategies, remote workflows)",
+          "Linux CLI & Server Environments",
+          "SSH Workflows & Remote Administration",
+          "System-Level Debugging & Problem Solving"
+        ].map(skill => (
+          <article key={skill} className='experience__details'>
+            <BsPatchCheckFill className='experience__details-icon' />
+            <div>
+              <h4>{skill}</h4>
+              <small className='text-light'>Applied</small>
+            </div>
+          </article>
+        ))}
 
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>Linux (CLI, server environment)</h4>
-                <small className='text-light'>Intermediate</small>
-              </div>
-            </article>
+      </div>
+    </div>
 
-            <article className='experience__details'>
-              <BsPatchCheckFill className='experience__details-icon' />
-              <div>
-                <h4>SSH Workflows & Server Administration</h4>
-                <small className='text-light'>Experience</small>
-              </div>
-            </article>
+    {/* FRONTEND */}
+    <div className="experience__section">
+      <h3>Frontend Engineering</h3>
+      <div className="experience__content">
 
-          </div>
-        </div>
+        {[
+          "React / Next.js",
+          "TypeScript (ES6+)",
+          "Component Architecture & State Design",
+          "Responsive UI (Tailwind, Bootstrap)",
+          "Performance-Oriented UI Thinking"
+        ].map(skill => (
+          <article key={skill} className='experience__details'>
+            <BsPatchCheckFill className='experience__details-icon' />
+            <div>
+              <h4>{skill}</h4>
+              <small className='text-light'>Experience</small>
+            </div>
+          </article>
+        ))}
 
-        {/* FRONTEND SECTION */}
-        <div className="experience__frontend">
-          <h3>Frontend Development</h3>
-          <div className="experience__content">
+      </div>
+    </div>
 
-            {[
-              "HTML",
-              "CSS",
-              "Bootstrap",
-              "Tailwind CSS",
-              "JavaScript (ES6+)",
-              "TypeScript",
-              "React",
-              "Next.js"
-            ].map(skill => (
-              <article key={skill} className='experience__details'>
-                <BsPatchCheckFill className='experience__details-icon' />
-                <div>
-                  <h4>{skill}</h4>
-                  <small className='text-light'>Experience</small>
-                </div>
-              </article>
-            ))}
+    {/* BACKEND */}
+    <div className="experience__section">
+      <h3>Backend & API Architecture</h3>
+      <div className="experience__content">
 
-          </div>
-        </div>
+        {[
+          "Node.js / Express",
+          "Python (FastAPI)",
+          "Laravel (PHP)",
+          "REST API Design & Integration",
+          "Authentication & Backend Structure",
+          "Database Modeling (MySQL, PostgreSQL)"
+        ].map(skill => (
+          <article key={skill} className='experience__details'>
+            <BsPatchCheckFill className='experience__details-icon' />
+            <div>
+              <h4>{skill}</h4>
+              <small className='text-light'>Applied</small>
+            </div>
+          </article>
+        ))}
 
-      
-        {/* HYBRID SECTION */}
-        <div className="experience__hybrid">
-        <h3>Desktop / Hybrid Applications</h3>
-        <div className="experience__content">
+      </div>
+    </div>
+    {/* DATABASE ENGINEERING */}
+<div className="experience__section">
+  <h3>Database Engineering</h3>
+  <div className="experience__content">
 
     {[
-      "Electron (Desktop Apps)",
-      "Web-to-Desktop Conversion",
-      "Executable Builds (.exe / installers)",
-      "Capacitor (Web → iOS Wrapper)",
-      "iOS Application Builds (.ipa) via CI (GitHub Actions + macOS runners)",
-      "iOS Packaging & Signing Workflow (App Store / TestFlight ready)",
-      "Basic Desktop Architecture"
+      "MySQL (Schema Design & Query Optimization)",
+      "PostgreSQL",
+      "Oracle Database",
+      "MongoDB (NoSQL Concepts)",
+      "Firebase (Cloud Data Integration)",
+      "Relational Modeling & Data Structuring"
     ].map(skill => (
       <article key={skill} className='experience__details'>
         <BsPatchCheckFill className='experience__details-icon' />
@@ -96,104 +106,81 @@ const Experience = () => {
   </div>
 </div>
 
-        {/* BACKEND SECTION */}
-        <div className="experience__backend">
-          <h3>Backend Development</h3>
-          <div className="experience__content">
+    {/* HYBRID & MOBILE */}
+    <div className="experience__section">
+      <h3>Hybrid & Mobile Engineering</h3>
+      <div className="experience__content">
 
-            {[
-              "Node.js",
-              "Express.js",
-              "Python",
-              "FastAPI",
-              "Laravel",
-              "REST API Design"
-            ].map(skill => (
-              <article key={skill} className='experience__details'>
-                <BsPatchCheckFill className='experience__details-icon' />
-                <div>
-                  <h4>{skill}</h4>
-                  <small className='text-light'>Experience</small>
-                </div>
-              </article>
-            ))}
-
-          </div>
-        </div>
-
-        {/* DATABASE SECTION */}
-        <div className="experience__database">
-          <h3>Database Systems</h3>
-          <div className="experience__content">
-
-            {[
-              "MySQL",
-              "PostgreSQL",
-              "Oracle",
-              "MongoDB",
-              "Firebase"
-            ].map(skill => (
-              <article key={skill} className='experience__details'>
-                <BsPatchCheckFill className='experience__details-icon' />
-                <div>
-                  <h4>{skill}</h4>
-                  <small className='text-light'>Experience</small>
-                </div>
-              </article>
-            ))}
-
-          </div>
-        </div>
-
-        {/* INFRASTRUCTURE */}
-        <div className="experience__infrastructure">
-          <h3>Infrastructure / Cloud</h3>
-          <div className="experience__content">
-
-            {[
-              "Oracle Cloud",
-              "SSH Deployment",
-              "Server Configuration",
-              "Basic Hosting Setup",
-              "SaaS-Oriented Thinking"
-            ].map(skill => (
-              <article key={skill} className='experience__details'>
-                <BsPatchCheckFill className='experience__details-icon' />
-                <div>
-                  <h4>{skill}</h4>
-                  <small className='text-light'>Applied</small>
-                </div>
-              </article>
-            ))}
-
-          </div>
-        </div>
-
-        {/* SECURITY */}
-        <div className="experience__security">
-          <h3>Security & Systems Curiosity</h3>
-          <div className="experience__content">
-
-            {[
-              "MITM Concepts",
-              "HTTPS Protocol Curiosity",
-              "SSL Stripping Awareness",
-              "Backend Attack Surface Awareness"
-            ].map(skill => (
-              <article key={skill} className='experience__details'>
-                <BsPatchCheckFill className='experience__details-icon' />
-                <div>
-                  <h4>{skill}</h4>
-                  <small className='text-light'>Learning / Applied</small>
-                </div>
-              </article>
-            ))}
-
-          </div>
-        </div>
+        {[
+          "Electron (Desktop Applications)",
+          "Web-to-Desktop Packaging (.exe)",
+          "Capacitor (Web → iOS Integration)",
+          "iOS Application Builds (.ipa)",
+          "CI/CD for iOS (GitHub Actions + macOS runners)",
+          "App Store / TestFlight Deployment Workflow"
+        ].map(skill => (
+          <article key={skill} className='experience__details'>
+            <BsPatchCheckFill className='experience__details-icon' />
+            <div>
+              <h4>{skill}</h4>
+              <small className='text-light'>Applied</small>
+            </div>
+          </article>
+        ))}
 
       </div>
-    </section>
+    </div>
+
+    {/* CLOUD & DEVOPS */}
+    <div className="experience__section">
+      <h3>Cloud & DevOps</h3>
+      <div className="experience__content">
+
+        {[
+          "Oracle Cloud Infrastructure",
+          "Server Provisioning & Configuration",
+          "CI/CD Pipelines (GitHub Actions)",
+          "Automated Build Workflows (Web & iOS)",
+          "Environment Variables & Secrets Management",
+          "Production Deployment Practices"
+        ].map(skill => (
+          <article key={skill} className='experience__details'>
+            <BsPatchCheckFill className='experience__details-icon' />
+            <div>
+              <h4>{skill}</h4>
+              <small className='text-light'>Applied</small>
+            </div>
+          </article>
+        ))}
+
+      </div>
+    </div>
+
+    {/* SECURITY */}
+    <div className="experience__section">
+      <h3>Systems & Security Awareness</h3>
+      <div className="experience__content">
+
+        {[
+          "HTTPS & TLS Concepts",
+          "MITM & Attack Surface Awareness",
+          "Backend Exposure Risk Analysis",
+          "Security-Oriented System Thinking"
+        ].map(skill => (
+          <article key={skill} className='experience__details'>
+            <BsPatchCheckFill className='experience__details-icon' />
+            <div>
+              <h4>{skill}</h4>
+              <small className='text-light'>Applied / Learning</small>
+            </div>
+          </article>
+        ))}
+
+      </div>
+    </div>
+
+  </div>
+</section>
   );
 };
 
