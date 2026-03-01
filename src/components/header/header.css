@@ -37,11 +37,10 @@ header {
   background: linear-gradient(var(--color-primary), transparent);
   width: clamp(16rem, 40vw, 22rem);
   height: clamp(22rem, 55vh, 30rem);
-  position: relative;     /* vietoj absolute */
-  left: auto;
-  top: auto;
-  transform: none;
-  margin: 4rem auto 0;    /* centruoja ir nuleidžia */
+  position: absolute;
+  left: 50%;
+  top: 4rem;
+  transform: translateX(-50%);
   border-radius: 12rem 12rem 0 0;
   overflow: hidden;
   padding: clamp(3.5rem, 6vh, 5rem) 1.5rem 1.5rem 1.5rem;
@@ -57,10 +56,11 @@ header {
 }
 /* ===== MEDIA QUERIES (MEDIUM DEVICES) ========= */
 @media screen and (max-width: 1024px) {
+
   header {
     height: auto;
-    padding-bottom: 4rem;
     overflow: visible;
+    padding-bottom: 4rem;
   }
 
   .header__socials,
@@ -69,12 +69,13 @@ header {
   }
 
   .me {
-    position: relative;
+    position: relative;   /* tik čia */
     left: auto;
     top: auto;
     transform: none;
     margin: 3rem auto 0;
   }
+
 }
 
 @media screen and (max-width: 600px) {
