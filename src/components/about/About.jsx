@@ -38,7 +38,16 @@ const About = () => {
             </article>
           </div>
 
-          <p>I am a versatile programmer with technical skills in front-end, back-end, and systems. My approach to a project is a full cycle: from vision, design, to deployment on the phone. This type of person is usually called a product developer, not just a "programmer."</p>
+          <p>
+            I am a full-stack engineer focused on building production-ready web and hybrid applications.
+            My work spans frontend architecture, backend API design, cloud infrastructure, and CI/CD automation.
+
+            Beyond web systems, I extend applications into desktop and mobile environments —
+            building Electron-based desktop apps and packaging hybrid applications for both iOS (.ipa) and Android (.apk).
+            I work with CI pipelines (GitHub Actions) to automate cross-platform build workflows.
+
+            I enjoy designing systems that are not only functional, but structured, scalable, and deployment-ready.
+        </p>
           <a href="#contact" className='btn btn-primary'>Let's Talk</a>
         </div>
         </div>
