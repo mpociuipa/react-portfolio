@@ -12,7 +12,11 @@
     display: grid;
     place-items: center;
 }
-
+.about__video {
+  width: 100%;
+  border-radius: 2rem;
+  object-fit: cover;
+}
 .about__me-image {
     border-radius: 2rem;
     overflow: hidden;
