@@ -12,14 +12,14 @@ header {
   display: grid;
   grid-template-rows: max-content max-content;
   row-gap: 1.25rem;
-
   justify-content: center;
   align-content: center;   /* mažiau tuščios vietos */
-
   padding-top: 1rem;
   padding-bottom: 1rem;
-
   position: relative;
+  width: 100%;
+  max-width: 1200px;   /* jei nori riboti turinio plotį */
+  margin: 0 auto;
 }
 
 /* ================= TOP BLOCK ================= */
@@ -67,10 +67,28 @@ header {
 
 /* ================= HERO AREA ================= */
 
+/* HERO turi būti tik pozicionavimo "containeris" arkai */
 .header__hero {
   position: relative;
   width: 100%;
   height: clamp(32rem, 55vh, 46rem);
+}
+
+/* Social + Scroll pririšam prie VISO container, kad eitų į šonus */
+.header__container .header__socials {
+  position: absolute;
+  left: clamp(1.5rem, 4vw, 4.5rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10; /* kad būtų virš visko */
+}
+
+.header__container .scroll__down {
+  position: absolute;
+  right: clamp(1.5rem, 4vw, 4.5rem);
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  z-index: 10;
 }
 
 /* Hero Image / Arc */
@@ -147,6 +165,12 @@ header {
 
   .scroll__down {
     right: clamp(0.5rem, 6vw, 6rem);
+  }
+  .header__container .header__socials {
+    left: clamp(2.5rem, 6vw, 8rem);
+  }
+  .header__container .scroll__down {
+    right: clamp(2.5rem, 6vw, 8rem);
   }
 }
 
