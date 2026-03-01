@@ -5,7 +5,6 @@ import ME from '../../assets/me.png';
 import HeaderSocial from './HeaderSocials';
 
 const Header = () => {
-
   const skills = [
     "Multi-stack Full Stack Developer",
     "SQL + NoSQL Experience",
@@ -30,15 +29,19 @@ const Header = () => {
         </h5>
 
         <CTA />
-        <HeaderSocial />
 
-        <div className="me">
-          <img src={ME} alt="3D game" />
+        {/* HERO GROUP (pririšam viską prie nuotraukos) */}
+        <div className="header__hero">
+          <HeaderSocial />
+
+          <div className="me">
+            <img src={ME} alt="3D game" />
+          </div>
+
+          <a href="#contact" className="scroll__down">
+            Scroll Down
+          </a>
         </div>
-
-        <a href="#contact" className="scroll__down">
-          Scroll Down
-        </a>
       </div>
     </header>
   );
