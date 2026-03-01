@@ -37,10 +37,11 @@ header {
   background: linear-gradient(var(--color-primary), transparent);
   width: clamp(16rem, 40vw, 22rem);
   height: clamp(22rem, 55vh, 30rem);
-  position: absolute;
-  left: 50%;
-  top: 4rem;
-  transform: translateX(-50%);
+  position: relative;     /* vietoj absolute */
+  left: auto;
+  top: auto;
+  transform: none;
+  margin: 4rem auto 0;    /* centruoja ir nuleidžia */
   border-radius: 12rem 12rem 0 0;
   overflow: hidden;
   padding: clamp(3.5rem, 6vh, 5rem) 1.5rem 1.5rem 1.5rem;
