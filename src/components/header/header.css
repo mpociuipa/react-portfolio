@@ -1,47 +1,102 @@
-header{
+/* ================= HEADER BASE ================= */
+
+header {
   min-height: 100vh;
   padding-top: 7rem;
   overflow: hidden;
 }
+
+/* Container */
+.header__container {
+  text-align: center;
+  min-height: calc(100vh - 7rem);
+
+  display: grid;
+  grid-template-rows: max-content max-content;
+  row-gap: 1.75rem;
+
+  place-content: center;
+
+  position: relative;
+}
+
+/* ================= TOP BLOCK ================= */
+
 .header__top {
   display: grid;
-  gap: 1rem;                 /* suvaldo tarpus tarp tekstų */
+  gap: 1rem;
   justify-items: center;
-  padding-bottom: 2.5rem;    /* svarbu: vieta, kad CTA neliptų ant hero */
 }
+
+/* Skills grid (desktop) */
+.header__skills {
+  margin-top: 0.8rem;
+}
+
+.header__skill-line {
+  display: block;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 1025px) {
+  .header__skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35rem 2rem;
+    max-width: 44rem;
+    margin: 1rem auto 0 auto;
+    text-align: left;
+  }
+
+  .header__skill-line {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+}
+
 /* CTA */
 .cta {
   margin-top: 1.2rem;
-  margin-bottom: 2.5rem; /* <— pridėk */
   display: flex;
   gap: 1.2rem;
   justify-content: center;
 }
-.header__container{
-  text-align: center;
-  min-height: calc(100vh - 7rem);
-  display: grid;
-  grid-template-rows: max-content max-content;
-  row-gap: 1.5rem;
-  place-content: center;
-  position: relative;
-}
 
-.header__hero{
+/* ================= HERO AREA ================= */
+
+.header__hero {
   position: relative;
   width: 100%;
   height: clamp(28rem, 48vh, 40rem);
-  margin-top: 0;
 }
 
-.me{
+/* Hero Image / Arc */
+.me {
+  background: linear-gradient(var(--color-primary), transparent);
+
+  width: clamp(18rem, 28vw, 22rem);
+  height: clamp(24rem, 52vh, 30rem);
+
   position: absolute;
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
+
+  border-radius: 12rem 12rem 0 0;
+  overflow: hidden;
+
+  padding: clamp(3.5rem, 6vh, 5rem) 1.5rem 1.5rem;
 }
 
-/* Social icons – visada prie hero (ne prie ekrano apačios) */
+.me img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= SOCIAL + SCROLL ================= */
+
 .header__socials {
   display: flex;
   flex-direction: column;
@@ -61,7 +116,6 @@ header{
   background: var(--color-primary);
 }
 
-/* Scroll Down – visada dešinėje prie hero */
 .scroll__down {
   position: absolute;
   right: clamp(0.5rem, 3vw, 2.5rem);
@@ -70,22 +124,19 @@ header{
   font-weight: 300;
   font-size: 0.9rem;
 }
-.header__skill-line::before {
-  content: "• ";
-  color: var(--color-primary);
-  margin-right: 0.25rem;
-}
-/* ===== LARGE SCREENS (>=1440px) ===== */
+
+/* ================= LARGE SCREENS ================= */
+
 @media screen and (min-width: 1440px) {
+
   .header__hero {
-    min-height: clamp(26rem, 48vh, 32rem);
-    margin-top: clamp(1.5rem, 2.5vh, 2.5rem);
+    height: clamp(32rem, 45vh, 42rem);
   }
 
   .me {
     width: clamp(22rem, 24vw, 26rem);
-    height: clamp(34rem, 54vh, 38rem);
-    padding: clamp(4.5rem, 6vh, 6rem) 1.7rem 1.7rem;
+    height: clamp(30rem, 50vh, 36rem);
+    padding: clamp(4rem, 6vh, 6rem) 1.7rem 1.7rem;
   }
 
   .header__socials {
@@ -95,34 +146,32 @@ header{
   .scroll__down {
     right: clamp(1.5rem, 4vw, 4rem);
   }
-    .header__skills {
-    max-width: 48rem;
-    gap: 0.5rem 3rem;
-  }
-
-  .header__skill-line {
-    font-size: 1rem;
-  }
-
-
 }
 
-/* ===== ULTRA-WIDE (>=1920px) ===== */
 @media screen and (min-width: 1920px) {
+
   .header__hero {
-    min-height: clamp(26rem, 48vh, 32rem);
+    height: clamp(34rem, 42vh, 44rem);
   }
 
   .me {
     width: clamp(24rem, 22vw, 28rem);
-    height: clamp(32rem, 52vh, 38rem);
+    height: clamp(32rem, 48vh, 38rem);
   }
 }
+
+/* ================= TABLET ================= */
+
 @media screen and (max-width: 1024px) {
+
   header {
-    height: auto;
-    overflow: visible;
+    min-height: auto;
     padding-bottom: 4rem;
+    overflow: visible;
+  }
+
+  .header__container {
+    place-content: start center;
   }
 
   .header__hero {
@@ -133,54 +182,43 @@ header{
   .me {
     position: relative;
     left: auto;
-    top: auto;
+    bottom: auto;
     transform: none;
+
     margin: 0 auto;
+    width: 60%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+
+    padding: 3rem 1.2rem 1.2rem;
   }
 
-  /* Jei nori – paslėpk, kad mobile nebūtų per daug elementų */
   .header__socials,
   .scroll__down {
     display: none;
   }
 }
 
+/* ================= MOBILE ================= */
+
 @media screen and (max-width: 600px) {
+
   header {
     padding-top: 6rem;
   }
 
   .me {
     width: 75%;
-    height: auto;
-    aspect-ratio: 3 / 4;
+    margin-top: 1.5rem;
+    padding: 2.6rem 1rem 1rem;
   }
-}
-.header__skills {
-  margin-top: 0.8rem;
-}
 
-.header__skill-line {
-  display: block;
-  line-height: 1.5;
-}
-
-@media screen and (min-width: 1025px) {
   .header__skills {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.4rem 2rem;
-
-    max-width: 44rem;
-    margin: 1rem auto 0 auto;
-    text-align: left;        /* atrodo profesionaliau */
+    display: block;
+    text-align: center;
   }
 
   .header__skill-line {
-    display: block;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    white-space: nowrap;
+    white-space: normal;
   }
 }
-
