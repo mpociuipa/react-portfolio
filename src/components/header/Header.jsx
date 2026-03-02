@@ -42,7 +42,19 @@ const Header = () => {
 
         {/* SVARBIAUSIA: social + scroll IŠKELTI IŠ hero */}
         <HeaderSocial />
-        <a href="#contact" className="scroll__down">Scroll Down</a>
+        <a
+  href="#contact"
+  className="scroll__down"
+  onClick={(e) => {
+    e.preventDefault();
+    document.querySelector("#contact")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }}
+>
+  Scroll Down
+</a>
 
       </div>
     </header>
