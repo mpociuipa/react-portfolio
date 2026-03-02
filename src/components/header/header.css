@@ -31,12 +31,41 @@ header {
 .header__top {
   width: min(1200px, 100%);
   margin-inline: auto;
-
+  position: relative;
+  z-index: 5;
   display: grid;
   gap: 1rem;
   justify-items: center;
 }
+.header__socials {
+  position: absolute;
+  left: clamp(1.5rem, 4vw, 4.5rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.scroll__down {
+  position: absolute;
+  right: clamp(1.5rem, 4vw, 4.5rem);
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-weight: 300;
+  font-size: 0.9rem;
+  z-index: 50;
+}
+
+.header__socials::after {
+  content: '';
+  width: 1px;
+  height: 2rem;
+  background: var(--color-primary);
+}
 /* Skills */
 .header__skills {
   margin-top: 0.8rem;
@@ -46,42 +75,13 @@ header {
   display: block;
   line-height: 1.5;
 }
-
-@media screen and (min-width: 1025px) {
-  .header__skills {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.35rem 2rem;
-
-    max-width: 44rem;
-    margin: 1rem auto 0 auto;
-    text-align: left;
-  }
-
-  .header__skill-line {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    white-space: nowrap;
-  }
-}
-
-/* CTA */
-.cta {
-  margin-top: 1.2rem;
-  display: flex;
-  gap: 1.2rem;
-  justify-content: center;
-}
-
-/* ================= HERO AREA ================= */
-
 /* HERO irgi ribojam pločiu, bet jis liks centre */
 .header__hero {
   width: min(1200px, 100%);
   margin-inline: auto;
 
   position: relative;
-  height: clamp(32rem, 55vh, 46rem);
+  height: clamp(34rem, 62vh, 46rem);
 }
 
 /* Me arc */
@@ -107,40 +107,30 @@ header {
   height: 100%;
   object-fit: cover;
 }
-
-/* ================= SOCIAL + SCROLL ================= */
-/* DABAR jie eis į šonus, nes .header__container yra 100% pločio */
-
-.header__socials {
+/* CTA */
+.cta {
+  margin-top: 1.2rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
-
-  position: absolute;
-  left: clamp(1.5rem, 4vw, 4.5rem);
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 50;
+  gap: 1.2rem;
+  justify-content: center;
 }
+@media screen and (min-width: 1025px) {
+  .header__skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35rem 2rem;
 
-.header__socials::after {
-  content: '';
-  width: 1px;
-  height: 2rem;
-  background: var(--color-primary);
+    max-width: 44rem;
+    margin: 1rem auto 0 auto;
+    text-align: left;
+  }
+
+  .header__skill-line {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
 }
-
-.scroll__down {
-  position: absolute;
-  right: clamp(1.5rem, 4vw, 4.5rem);
-  top: 50%;
-  transform: translateY(-50%) rotate(90deg);
-  font-weight: 300;
-  font-size: 0.9rem;
-  z-index: 50;
-}
-
 /* ================= LARGE SCREENS ================= */
 
 @media screen and (min-width: 1440px) {
