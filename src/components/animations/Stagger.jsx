@@ -4,44 +4,43 @@ import { motion, useReducedMotion } from "framer-motion";
 export const Stagger = ({
   children,
   once = true,
-  amount = 0.25,
-  delayChildren = 0.12,
+  amount = 0.12,
   stagger = 0.08,
+  delayChildren = 0.05,
 }) => {
   const reduce = useReducedMotion();
+  if (reduce) return <>{children}</>;
 
   return (
     <motion.div
+      style={{ width: "100%" }} // kad grid’as ne “susispaustų”
+      variants={{
+        hidden: { opacity: 1 },
+        show: {
+          opacity: 1,
+          transition: { staggerChildren: stagger, delayChildren },
+        },
+      }}
       initial="hidden"
       whileInView="show"
       viewport={{ once, amount }}
-      variants={{
-        hidden: {},
-        show: {
-          transition: reduce ? {} : { delayChildren, staggerChildren: stagger },
-        },
-      }}
     >
       {children}
     </motion.div>
   );
 };
 
-export const StaggerItem = ({ children, y = 16 }) => {
+export const StaggerItem = ({ children, y = 14 }) => {
   const reduce = useReducedMotion();
+  if (reduce) return <>{children}</>;
 
   return (
     <motion.div
       variants={{
-        hidden: reduce ? { opacity: 1 } : { opacity: 0, y },
-        show: reduce
-          ? { opacity: 1 }
-          : {
-              opacity: 1,
-              y: 0,
-              transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-            },
+        hidden: { opacity: 0, y },
+        show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
       }}
+      style={{ width: "100%" }}
     >
       {children}
     </motion.div>
