@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <header id="header">
-      <div className="header__container">
+      <div className="container header__container">
 
         <div className="header__top">
           <h5>Hello I'm</h5>
@@ -31,15 +31,18 @@ const Header = () => {
           <CTA />
         </div>
 
-        {/* SOCIAL + SCROLL PERKELTI ČIA */}
-        <HeaderSocial />
-        <a href="#contact" className="scroll__down">Scroll Down</a>
-
+        {/* HERO FULL WIDTH (social/scroll bus nuo container, ne ant arkos) */}
         <div className="header__hero">
-          <div className="me">
-            <img src={ME} alt="3D game" />
+          <div className="header__hero-inner">
+            <div className="me">
+              <img src={ME} alt="3D game" />
+            </div>
           </div>
         </div>
+
+        {/* SVARBIAUSIA: social + scroll IŠKELTI IŠ hero */}
+        <HeaderSocial />
+        <a href="#contact" className="scroll__down">Scroll Down</a>
 
       </div>
     </header>
