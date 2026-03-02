@@ -1,30 +1,22 @@
-import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-const Reveal = ({
+export default function Reveal({
   children,
+  y = 16,
   delay = 0,
-  duration = 0.45,
-  y = 14,
-  once = true,
-  amount = 0.18, // mažas, kad mobile tikrai suveiktų
-}) => {
+  duration = 0.5,
+}) {
   const reduce = useReducedMotion();
-
-  // Jei user turi reduced motion – nerodom animacijų (mobile-friendly)
-  if (reduce) return <>{children}</>;
 
   return (
     <motion.div
-      style={{ width: "100%" }}              // svarbu grid’ams
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, amount }}           // <- čia dažniausias fix
+      initial={reduce ? false : { opacity: 0, y }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}   // ✅ svarbiausia mobile
       transition={{ duration, delay, ease: "easeOut" }}
+      style={reduce ? undefined : { willChange: "transform, opacity" }}
     >
       {children}
     </motion.div>
   );
-};
-
-export default Reveal;
+}

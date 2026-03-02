@@ -9,7 +9,10 @@
   list-style: none;
   text-decoration: none;
 }
-
+#root {
+  position: relative;
+  z-index: 0;
+}
 :root {
   /* DARK (default tokens) */
   --color-bg: #1f1f38;
