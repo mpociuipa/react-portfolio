@@ -1,6 +1,8 @@
 #portfolio {
   height: auto;
   overflow: visible;
+  position: relative;
+  z-index: 5;
 }
 
 .portfolio__container {
