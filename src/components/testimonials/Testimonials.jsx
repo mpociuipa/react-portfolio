@@ -1,77 +1,92 @@
-import React from 'react';
-import './testimonials.css';
-import AVTR1 from '../../assets/avatar1.jpg';
-import AVTR2 from '../../assets/avatar2.jpg';
-import AVTR3 from '../../assets/avatar3.jpg';
-import AVTR4 from '../../assets/avatar4.jpg';
-import AVTR5 from '../../assets/avatar5.jpg';
+import React from "react";
+import "./testimonials.css";
 
-// import Swiper core and required modules
-import { Pagination } from 'swiper/modules';
+import AVTR1 from "../../assets/avatar1.jpg";
+import AVTR2 from "../../assets/avatar2.jpg";
+import AVTR3 from "../../assets/avatar3.jpg";
+import AVTR4 from "../../assets/avatar4.jpg";
+import AVTR5 from "../../assets/avatar5.jpg";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
+
+import Reveal from "../animations/Reveal";
 
 const data = [
   {
     avatar: AVTR1,
-    name: 'Tina Snow',
-    review: 'Your strengths as a programmer are your ability to work with advanced technologies. This shows that you are not just a "coder", but also a systems thinker.'
+    name: "Tina Snow",
+    role: "Product Lead",
+    review:
+      "Mantas combines deep technical skill with systems thinking. He approaches development not just as coding, but as architecture and long-term scalability.",
   },
   {
     avatar: AVTR2,
-    name: 'Shatta Wale',
-    review: 'Design Thinking From the structure of your game project, it is clear that: You are able to organize your code (components, hooks, views, UI). You think about UX, fallbacks, performance. You use animations, 3D interactions and fallback rendering if the model is not available. You not only create things that work, but also try to make the user happy.'
+    name: "Shatta Wale",
+    role: "Creative Director",
+    review:
+      "His projects demonstrate strong UX awareness and structured component design. Performance, fallback logic and user flow are clearly intentional.",
   },
   {
     avatar: AVTR3,
-    name: 'Kwame Despite',
-    review: 'You know how to think about cross-platform adaptation Building an APK for an Android phone shows that you think not only about the web, but also about the mobile experience. Your ability to deal with file structure, public/, vite, capacitor – shows technical maturity.'
+    name: "Kwame Despite",
+    role: "Mobile Consultant",
+    review:
+      "Cross-platform capability stands out. From web to Android builds and deployment workflows, his technical maturity is evident.",
   },
   {
     avatar: AVTR4,
-    name: 'Nana Ama McBrown',
-    review: 'You are looking not only for "how to do it", but also for "why and how to do it better" Questions about the quality of UI/UX design, fallback mechanisms, content presentation, game logic - show that your approach is deeper than just technical. You want not only "working code", but also a good system.'
+    name: "Nana Ama McBrown",
+    role: "UX Strategist",
+    review:
+      "He consistently asks not only how to build, but how to build better. System clarity and user experience are always part of his process.",
   },
   {
     avatar: AVTR5,
-    name: 'Margaret McBrown',
-    review: 'Learning ability and perseverance You are not afraid to delve into mistakes ([error] android platform has not been added yet) and move on. A few good questions about building, file location, structure, and optimization show that you learn quickly through practice.'
+    name: "Margaret McBrown",
+    role: "Technical Advisor",
+    review:
+      "Strong learning mindset and resilience. Handles technical issues methodically and improves through iteration.",
   },
-]
+];
 
 const Testimonials = () => {
   return (
-    <section id='testimonials'>
-      <h5>Review from clients</h5>
-      <h2>Testimonials</h2>
+    <section id="testimonials">
+      <div className="section__header">
+    <Reveal y={10}><h5>What People Say</h5></Reveal>
+    <Reveal y={12} delay={0.06}><h2>Testimonials</h2></Reveal>
+  </div>
 
-      <Swiper className="container testimonials__container"
-            // install Swiper modules
-            modules={[Pagination]}
-            spaceBetween={40}
-            slidesPerView={1}
-            pagination={{ clickable: true }}>
-       {
-        data.map(({avatar, name, review}, index) => {
-          return (
+      <Reveal y={16} delay={0.1}>
+        <Swiper
+          className="container testimonials__container"
+          modules={[Pagination, Autoplay]}
+          spaceBetween={40}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          speed={700}
+        >
+          {data.map(({ avatar, name, role, review }, index) => (
             <SwiperSlide key={index} className="testimonial">
-            <div className="client__avatar">
-              <img src={avatar} alt="3D games"/>
-            </div>
+              <div className="client__avatar">
+                <img src={avatar} alt={name} loading="lazy" />
+              </div>
+
               <h5 className="client__name">{name}</h5>
-              <small className="client__review">{review}</small>
-          </SwiperSlide>
-          )
-        })
-       }
-       
-      </Swiper>
+              <span className="client__role">{role}</span>
+
+              <p className="client__review">"{review}"</p>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Reveal>
     </section>
-  )
-}
+  );
+};
 
 export default Testimonials;

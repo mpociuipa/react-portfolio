@@ -17,12 +17,21 @@
     border-radius: 2rem;
     user-select: none;
 }
+.client__role {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-light);
+  margin-bottom: 0.8rem;
+}
 .client__review {
     color: var(--color-light);
     font-weight: 300;
     display: block;
     width: 80%;
     margin: 0.8rem auto 0;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--color-light);
 }
 .swiper-pagination-clickable .swiper-pagination-bullet {
     background: var(--color-primary);

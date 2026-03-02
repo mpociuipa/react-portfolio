@@ -1,188 +1,127 @@
-import React from 'react';
-import './experience.css';
-import { BsPatchCheckFill } from 'react-icons/bs';
+import React from "react";
+import "./experience.css";
+import { BsPatchCheckFill } from "react-icons/bs";
+
+import Reveal from "../animations/Reveal";
+import { Stagger, StaggerItem } from "../animations/Stagger";
 
 const Experience = () => {
+  const sections = [
+    {
+      title: "Engineering Foundations",
+      level: "Applied",
+      skills: [
+        "Git (branching strategies, remote workflows)",
+        "Linux CLI & Server Environments",
+        "SSH Workflows & Remote Administration",
+        "System-Level Debugging & Problem Solving",
+      ],
+    },
+    {
+      title: "Frontend Engineering",
+      level: "Experience",
+      skills: [
+        "React / Next.js",
+        "TypeScript (ES6+)",
+        "Component Architecture & State Design",
+        "Responsive UI (Tailwind, Bootstrap)",
+        "Performance-Oriented UI Thinking",
+      ],
+    },
+    {
+      title: "Backend & API Architecture",
+      level: "Applied",
+      skills: [
+        "Node.js / Express",
+        "Python (FastAPI)",
+        "Laravel (PHP)",
+        "REST API Design & Integration",
+        "Authentication & Backend Structure",
+        "Database Modeling (MySQL, PostgreSQL)",
+      ],
+    },
+    {
+      title: "Database Engineering",
+      level: "Applied",
+      skills: [
+        "MySQL (Schema Design & Query Optimization)",
+        "PostgreSQL",
+        "Oracle Database",
+        "MongoDB (NoSQL Concepts)",
+        "Firebase (Cloud Data Integration)",
+        "Relational Modeling & Data Structuring",
+      ],
+    },
+    {
+      title: "Hybrid & Mobile Engineering",
+      level: "Applied",
+      skills: [
+        "Electron (Desktop Applications)",
+        "Web-to-Desktop Packaging (.exe)",
+        "Capacitor (Web → iOS Integration)",
+        "iOS Application Builds (.ipa)",
+        "CI/CD for iOS (GitHub Actions + macOS runners)",
+        "App Store / TestFlight Deployment Workflow",
+      ],
+    },
+    {
+      title: "Cloud & DevOps",
+      level: "Applied",
+      skills: [
+        "Oracle Cloud Infrastructure",
+        "Server Provisioning & Configuration",
+        "CI/CD Pipelines (GitHub Actions)",
+        "Automated Build Workflows (Web & iOS)",
+        "Environment Variables & Secrets Management",
+        "Production Deployment Practices",
+      ],
+    },
+    {
+      title: "Systems & Security Awareness",
+      level: "Applied / Learning",
+      skills: [
+        "HTTPS & TLS Concepts",
+        "MITM & Attack Surface Awareness",
+        "Backend Exposure Risk Analysis",
+        "Security-Oriented System Thinking",
+      ],
+    },
+  ];
+
   return (
-    <section id='experience'>
-  <h5>Technical Expertise</h5>
-  <h2>Engineering Experience</h2>
-
-  <div className="container experience__container">
-
-    {/* ENGINEERING FOUNDATIONS */}
-    <div className="experience__section">
-      <h3>Engineering Foundations</h3>
-      <div className="experience__content">
-
-        {[
-          "Git (branching strategies, remote workflows)",
-          "Linux CLI & Server Environments",
-          "SSH Workflows & Remote Administration",
-          "System-Level Debugging & Problem Solving"
-        ].map(skill => (
-          <article key={skill} className='experience__details'>
-            <BsPatchCheckFill className='experience__details-icon' />
-            <div>
-              <h4>{skill}</h4>
-              <small className='text-light'>Applied</small>
-            </div>
-          </article>
-        ))}
-
-      </div>
-    </div>
-
-    {/* FRONTEND */}
-    <div className="experience__section">
-      <h3>Frontend Engineering</h3>
-      <div className="experience__content">
-
-        {[
-          "React / Next.js",
-          "TypeScript (ES6+)",
-          "Component Architecture & State Design",
-          "Responsive UI (Tailwind, Bootstrap)",
-          "Performance-Oriented UI Thinking"
-        ].map(skill => (
-          <article key={skill} className='experience__details'>
-            <BsPatchCheckFill className='experience__details-icon' />
-            <div>
-              <h4>{skill}</h4>
-              <small className='text-light'>Experience</small>
-            </div>
-          </article>
-        ))}
-
-      </div>
-    </div>
-
-    {/* BACKEND */}
-    <div className="experience__section">
-      <h3>Backend & API Architecture</h3>
-      <div className="experience__content">
-
-        {[
-          "Node.js / Express",
-          "Python (FastAPI)",
-          "Laravel (PHP)",
-          "REST API Design & Integration",
-          "Authentication & Backend Structure",
-          "Database Modeling (MySQL, PostgreSQL)"
-        ].map(skill => (
-          <article key={skill} className='experience__details'>
-            <BsPatchCheckFill className='experience__details-icon' />
-            <div>
-              <h4>{skill}</h4>
-              <small className='text-light'>Applied</small>
-            </div>
-          </article>
-        ))}
-
-      </div>
-    </div>
-    {/* DATABASE ENGINEERING */}
-<div className="experience__section">
-  <h3>Database Engineering</h3>
-  <div className="experience__content">
-
-    {[
-      "MySQL (Schema Design & Query Optimization)",
-      "PostgreSQL",
-      "Oracle Database",
-      "MongoDB (NoSQL Concepts)",
-      "Firebase (Cloud Data Integration)",
-      "Relational Modeling & Data Structuring"
-    ].map(skill => (
-      <article key={skill} className='experience__details'>
-        <BsPatchCheckFill className='experience__details-icon' />
-        <div>
-          <h4>{skill}</h4>
-          <small className='text-light'>Applied</small>
-        </div>
-      </article>
-    ))}
-
+    <section id="experience">
+     <div className="section__header">
+    <Reveal y={10}><h5>Technical Expertise</h5></Reveal>
+    <Reveal y={12} delay={0.06}><h2>Engineering Experience</h2></Reveal>
   </div>
-</div>
 
-    {/* HYBRID & MOBILE */}
-    <div className="experience__section">
-      <h3>Hybrid & Mobile Engineering</h3>
-      <div className="experience__content">
+      <div className="container experience__container">
+        {sections.map((sec, i) => (
+          <Reveal key={sec.title} y={18} delay={0.08 + i * 0.03}>
+            <div className="experience__section">
+              <h3>{sec.title}</h3>
 
-        {[
-          "Electron (Desktop Applications)",
-          "Web-to-Desktop Packaging (.exe)",
-          "Capacitor (Web → iOS Integration)",
-          "iOS Application Builds (.ipa)",
-          "CI/CD for iOS (GitHub Actions + macOS runners)",
-          "App Store / TestFlight Deployment Workflow"
-        ].map(skill => (
-          <article key={skill} className='experience__details'>
-            <BsPatchCheckFill className='experience__details-icon' />
-            <div>
-              <h4>{skill}</h4>
-              <small className='text-light'>Applied</small>
+              <Stagger>
+                <div className="experience__content">
+                  {sec.skills.map((skill) => (
+                    <StaggerItem key={skill}>
+                      <article className="experience__details">
+                        <BsPatchCheckFill className="experience__details-icon" />
+                        <div>
+                          <h4>{skill}</h4>
+                          <small className="text-light">{sec.level}</small>
+                        </div>
+                      </article>
+                    </StaggerItem>
+                  ))}
+                </div>
+              </Stagger>
             </div>
-          </article>
+          </Reveal>
         ))}
-
       </div>
-    </div>
-
-    {/* CLOUD & DEVOPS */}
-    <div className="experience__section">
-      <h3>Cloud & DevOps</h3>
-      <div className="experience__content">
-
-        {[
-          "Oracle Cloud Infrastructure",
-          "Server Provisioning & Configuration",
-          "CI/CD Pipelines (GitHub Actions)",
-          "Automated Build Workflows (Web & iOS)",
-          "Environment Variables & Secrets Management",
-          "Production Deployment Practices"
-        ].map(skill => (
-          <article key={skill} className='experience__details'>
-            <BsPatchCheckFill className='experience__details-icon' />
-            <div>
-              <h4>{skill}</h4>
-              <small className='text-light'>Applied</small>
-            </div>
-          </article>
-        ))}
-
-      </div>
-    </div>
-
-    {/* SECURITY */}
-    <div className="experience__section">
-      <h3>Systems & Security Awareness</h3>
-      <div className="experience__content">
-
-        {[
-          "HTTPS & TLS Concepts",
-          "MITM & Attack Surface Awareness",
-          "Backend Exposure Risk Analysis",
-          "Security-Oriented System Thinking"
-        ].map(skill => (
-          <article key={skill} className='experience__details'>
-            <BsPatchCheckFill className='experience__details-icon' />
-            <div>
-              <h4>{skill}</h4>
-              <small className='text-light'>Applied / Learning</small>
-            </div>
-          </article>
-        ))}
-
-      </div>
-    </div>
-
-  </div>
-</section>
+    </section>
   );
 };
 
 export default Experience;
-

@@ -1,73 +1,83 @@
-import React from 'react';
-import './services.css';
-import {BiCheck} from 'react-icons/bi';
+import React from "react";
+import "./services.css";
+import { BiCheck } from "react-icons/bi";
+
+import Reveal from "../animations/Reveal";
+import { Stagger, StaggerItem } from "../animations/Stagger";
+
+const services = [
+  {
+    title: "Full-Stack Web Engineering",
+    items: [
+      "Frontend architecture (React, Next.js, TypeScript)",
+      "Backend API development (Node.js, FastAPI, Laravel)",
+      "Database modeling (MySQL, PostgreSQL, MongoDB)",
+      "Authentication, security & production-ready structure",
+    ],
+  },
+  {
+    title: "Cross-Platform Applications",
+    items: [
+      "Desktop apps with Electron (.exe builds)",
+      "Android signed release builds (.apk)",
+      "iOS build workflows (.ipa via CI/CD)",
+      "App Store / TestFlight deployment setup",
+    ],
+  },
+  {
+    title: "Cloud & Deployment",
+    items: [
+      "Oracle Cloud server configuration",
+      "CI/CD automation (GitHub Actions)",
+      "Environment variables & secrets management",
+      "Production deployment & hosting strategy",
+    ],
+  },
+  {
+    title: "Technical UI & System Design",
+    items: [
+      "Performance-oriented UI architecture",
+      "Responsive layouts (Tailwind / Bootstrap)",
+      "Minimalist, structured UX thinking",
+      "Security-aware frontend & backend integration",
+    ],
+  },
+];
 
 const Services = () => {
   return (
-    <section id='services'>
-      <h5>What I Offer</h5>
-      <h2>Services</h2>
+    <section id="services">
+      <div className="section__header">
+    <Reveal y={10}><h5>What I Provide</h5></Reveal>
+    <Reveal y={12} delay={0.06}><h2>Engineering Services</h2></Reveal>
+  </div>
 
-      <div className="container services__container">
-        <article className="service">
-          <div className="service__head">
-            <h3>UI/UX Design</h3>
+      <Reveal y={16} delay={0.1}>
+        <Stagger>
+          <div className="container services__container">
+            {services.map((service, index) => (
+              <StaggerItem key={index}>
+                <article className="service">
+                  <div className="service__head">
+                    <h3>{service.title}</h3>
+                  </div>
+
+                  <ul className="service__list">
+                    {service.items.map((item, i) => (
+                      <li key={i}>
+                        <BiCheck className="service__list-icon" />
+                        <p>{item}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </StaggerItem>
+            ))}
           </div>
-          <ul className="service__list">
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>The UI/UX design balances technical 3D realism with a minimalist user interface. Attention to detail – from fallback geometry to dynamic model movement – ensures that the game is not only playable, but also visually and emotionally experienced.</p>
-            </li>
-          </ul>
-        </article>
-        {/* END OF UI/UX */}
-        <article className="service">
-          <div className="service__head">
-            <h3>Web Development</h3>
-          </div>
-          <ul className="service__list">
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Web Development – what is it?
-Web Development – is the process of creating and maintaining websites and web applications. It includes technical programming, design implementation and server-side logic development.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Web Development is divided into:
-Front-end (user interface):
-Creates what the user sees and interacts with.
-Uses: HTML, CSS, JavaScript, React, Vue, Tailwind, etc.
-Back-end (server-side):
-Manages databases, authentication, APIs and logic.
-Uses: Node.js, Python (FastAPI, Django), PHP, Java, MySQL, MongoDB.
-Full-stack:
-Combines front-end and back-end skills.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Additional areas:
-DevOps – implementation and infrastructure management.
-UI/UX Design – convenient and effective user experience.
-Mobile Web – websites and applications adapted for mobile.</p>
-            </li>
-          </ul>
-        </article>
-        {/* WEB DEVELOPMENT */}
-        <article className="service">
-          <div className="service__head">
-            <h3>Content Creation</h3>
-          </div>
-          <ul className="service__list">
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Content Creation is a creative process that allows you to convey a message, create value, or evoke emotion through digital content, adapting to the audience and platform.</p>
-            </li>
-          </ul>
-        </article>
-        {/* END OF CONTENT CREATION */}
-      </div>
+        </Stagger>
+      </Reveal>
     </section>
-  )
-}
+  );
+};
 
 export default Services;

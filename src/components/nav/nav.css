@@ -31,3 +31,7 @@ nav a.active {
     background: var(--color-primary);
     color: var(--color-bg);
 }
+.nav__items {
+  display: flex;
+  gap: inherit; /* jei nav turi gap */
+}

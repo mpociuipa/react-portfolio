@@ -32,7 +32,18 @@
     display: inline-block;
     font-size: 0.8rem;
 }
+.contact__status {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
 
+.contact__status.success {
+  color: #4CAF50;
+}
+
+.contact__status.error {
+  color: #ff4d4d;
+}
 /* ========== Form =========== */
 form {
     display: flex;
