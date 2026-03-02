@@ -6,31 +6,38 @@ header {
   overflow: hidden;
 }
 
-/* Container */
+/* Container – PADAROM PILNO PLOČIO, kad absolute elementai galėtų eiti į šonus */
 .header__container {
+  width: 100%;
+  max-width: none;             /* labai svarbu */
   min-height: calc(100vh - 7rem);
+
   display: grid;
   grid-template-rows: max-content max-content;
   row-gap: 1.25rem;
+
   justify-content: center;
-  align-content: center;   /* mažiau tuščios vietos */
+  align-content: center;
+
   padding-top: 1rem;
   padding-bottom: 1rem;
-  position: relative;
-  width: 100%;
-  max-width: 1200px;   /* jei nori riboti turinio plotį */
-  margin: 0 auto;
+
+  position: relative;          /* social + scroll bus nuo šito */
 }
 
 /* ================= TOP BLOCK ================= */
 
+/* TOP ribojam, kad tekstas nebūtų per platus ant 2560px */
 .header__top {
+  width: min(1200px, 100%);
+  margin-inline: auto;
+
   display: grid;
   gap: 1rem;
   justify-items: center;
 }
 
-/* Skills grid (desktop) */
+/* Skills */
 .header__skills {
   margin-top: 0.8rem;
 }
@@ -45,6 +52,7 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.35rem 2rem;
+
     max-width: 44rem;
     margin: 1rem auto 0 auto;
     text-align: left;
@@ -67,31 +75,16 @@ header {
 
 /* ================= HERO AREA ================= */
 
-/* HERO turi būti tik pozicionavimo "containeris" arkai */
+/* HERO irgi ribojam pločiu, bet jis liks centre */
 .header__hero {
+  width: min(1200px, 100%);
+  margin-inline: auto;
+
   position: relative;
-  width: 100%;
   height: clamp(32rem, 55vh, 46rem);
 }
 
-/* Social + Scroll pririšam prie VISO container, kad eitų į šonus */
-.header__container .header__socials {
-  position: absolute;
-  left: clamp(1.5rem, 4vw, 4.5rem);
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10; /* kad būtų virš visko */
-}
-
-.header__container .scroll__down {
-  position: absolute;
-  right: clamp(1.5rem, 4vw, 4.5rem);
-  top: 50%;
-  transform: translateY(-50%) rotate(90deg);
-  z-index: 10;
-}
-
-/* Hero Image / Arc */
+/* Me arc */
 .me {
   background: linear-gradient(var(--color-primary), transparent);
 
@@ -116,6 +109,7 @@ header {
 }
 
 /* ================= SOCIAL + SCROLL ================= */
+/* DABAR jie eis į šonus, nes .header__container yra 100% pločio */
 
 .header__socials {
   display: flex;
@@ -124,9 +118,10 @@ header {
   gap: 0.8rem;
 
   position: absolute;
-  left: clamp(0.5rem, 6vw, 6rem);
+  left: clamp(1.5rem, 4vw, 4.5rem);
   top: 50%;
   transform: translateY(-50%);
+  z-index: 50;
 }
 
 .header__socials::after {
@@ -138,70 +133,58 @@ header {
 
 .scroll__down {
   position: absolute;
-  right: clamp(0.5rem, 6vw, 6rem);
+  right: clamp(1.5rem, 4vw, 4.5rem);
   top: 50%;
   transform: translateY(-50%) rotate(90deg);
   font-weight: 300;
   font-size: 0.9rem;
+  z-index: 50;
 }
 
 /* ================= LARGE SCREENS ================= */
 
 @media screen and (min-width: 1440px) {
-
   .header__hero {
-    height: clamp(32rem, 45vh, 42rem);
+    height: clamp(30rem, 48vh, 40rem);
   }
 
   .me {
-    width: clamp(22rem, 24vw, 26rem);
-    height: clamp(30rem, 50vh, 36rem);
+    width: clamp(24rem, 24vw, 30rem);
+    height: clamp(32rem, 52vh, 40rem);
     padding: clamp(4rem, 6vh, 6rem) 1.7rem 1.7rem;
   }
 
   .header__socials {
-    left: clamp(0.5rem, 6vw, 6rem);
+    left: clamp(2rem, 5vw, 6rem);
   }
 
   .scroll__down {
-    right: clamp(0.5rem, 6vw, 6rem);
-  }
-  .header__container .header__socials {
-    left: clamp(2.5rem, 6vw, 8rem);
-  }
-  .header__container .scroll__down {
-    right: clamp(2.5rem, 6vw, 8rem);
+    right: clamp(2rem, 5vw, 6rem);
   }
 }
 
 @media screen and (min-width: 1920px) {
-
-   .header__container {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
   .header__hero {
-    height: 50vh;
+    height: clamp(30rem, 44vh, 38rem);
   }
 
   .me {
-    width: 28rem;
-    height: 40rem;
+    width: 30rem;
+    height: 42rem;
   }
+
   .header__socials {
-    left: clamp(0.5rem, 6vw, 6rem);
+    left: clamp(2.5rem, 6vw, 8rem);
   }
 
   .scroll__down {
-    right: clamp(0.5rem, 6vw, 6rem);
+    right: clamp(2.5rem, 6vw, 8rem);
   }
 }
 
 /* ================= TABLET ================= */
 
 @media screen and (max-width: 1024px) {
-
   header {
     min-height: auto;
     padding-bottom: 4rem;
@@ -209,7 +192,7 @@ header {
   }
 
   .header__container {
-    place-content: start center;
+    align-content: start;
   }
 
   .header__hero {
@@ -240,7 +223,6 @@ header {
 /* ================= MOBILE ================= */
 
 @media screen and (max-width: 600px) {
-
   header {
     padding-top: 6rem;
   }
