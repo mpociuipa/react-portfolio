@@ -89,7 +89,7 @@ header {
   background: linear-gradient(var(--color-primary), transparent);
 
   width: clamp(22rem, 30vw, 32rem);
-  height: clamp(30rem, 58vh, 44rem);
+  height: clamp(30rem, 52vh, 44rem);
 
   position: absolute;
   left: 50%;
@@ -154,13 +154,12 @@ header {
 }
 
 @media screen and (min-width: 1920px) {
-  .header__hero {
-    height: clamp(30rem, 44vh, 38rem);
+  .header__hero { height: 60vh; }
   }
 
   .me {
     width: 30rem;
-    height: 42rem;
+    height: 48vh;
   }
 
   .header__socials {
