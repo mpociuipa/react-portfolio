@@ -2,6 +2,7 @@
   height: auto;
   overflow: visible;
   position: relative;
+  padding-bottom: 6rem;
   z-index: 5;
 }
 
@@ -25,8 +26,15 @@
 .portfolio__item-image {
     border-radius: 1.5rem;
     overflow: hidden;
+    aspect-ratio: 16 / 16; /* arba 4/3 jei nori */
+    width: 100%;
 }
-
+.portfolio__item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .portfolio__item h3 {
     margin: 1.2rem 0 2rem;
 }
