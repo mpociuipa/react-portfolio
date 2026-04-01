@@ -1,7 +1,6 @@
 import React from "react";
 import "./experience.css";
 import { BsPatchCheckFill } from "react-icons/bs";
-
 import Reveal from "../animations/Reveal";
 import { Stagger, StaggerItem } from "../animations/Stagger";
 
@@ -65,6 +64,18 @@ const Experience = () => {
       ],
     },
     {
+      title: "Android & Mobile Development",
+      level: "Applied",
+      skills: [
+        "Java (OOP, Android APIs)",
+        "Android Studio (IDE & Emulator)",
+        "Android Application Builds (.apk)",
+        "Activity & Fragment Lifecycle",
+        "Android SDK & Gradle Configuration",
+        "Google Play Deployment Workflow",
+      ],
+    },
+    {
       title: "Cloud & DevOps",
       level: "Applied",
       skills: [
@@ -74,6 +85,18 @@ const Experience = () => {
         "Automated Build Workflows (Web & iOS)",
         "Environment Variables & Secrets Management",
         "Production Deployment Practices",
+      ],
+    },
+    {
+      title: "Agile & Scrum Methodology",
+      level: "Applied",
+      skills: [
+        "Agile Principles & Iterative Development",
+        "Scrum Framework (Sprints, Ceremonies)",
+        "Sprint Planning & Backlog Refinement",
+        "Daily Standups & Retrospectives",
+        "User Stories & Acceptance Criteria",
+        "Kanban Boards (Jira / GitHub Projects)",
       ],
     },
     {
@@ -90,17 +113,15 @@ const Experience = () => {
 
   return (
     <section id="experience">
-     <div className="section__header">
-    <Reveal y={10}><h5>Technical Expertise</h5></Reveal>
-    <Reveal y={12} delay={0.06}><h2>Engineering Experience</h2></Reveal>
-  </div>
-
+      <div className="section__header">
+        <Reveal y={10}><h5>Technical Expertise</h5></Reveal>
+        <Reveal y={12} delay={0.06}><h2>Engineering Experience</h2></Reveal>
+      </div>
       <div className="container experience__container">
         {sections.map((sec, i) => (
           <Reveal key={sec.title} y={18} delay={0.08 + i * 0.03}>
             <div className="experience__section">
               <h3>{sec.title}</h3>
-
               <Stagger>
                 <div className="experience__content">
                   {sec.skills.map((skill) => (
