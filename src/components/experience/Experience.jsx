@@ -88,6 +88,19 @@ const Experience = () => {
       ],
     },
     {
+  title: "AI & Automation Engineering",
+  level: "Applied",
+  skills: [
+    "OpenClaw AI Agent Deployment & Configuration",
+    "Self-Hosted AI Gateway (VPS + systemd)",
+    "WhatsApp Bot Integration (Multi-language)",
+    "LLM API Integration (OpenRouter, Anthropic)",
+    "Email Automation via CLI (himalaya / IMAP/SMTP)",
+    "AI Agent Skill Configuration & Prompt Engineering",
+    "Secure Agent Access Control & Policy Management",
+  ],
+},
+    {
       title: "Agile & Scrum Methodology",
       level: "Applied",
       skills: [
