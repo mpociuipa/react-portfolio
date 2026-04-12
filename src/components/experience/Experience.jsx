@@ -85,6 +85,8 @@ const Experience = () => {
         "Automated Build Workflows (Web & iOS)",
         "Environment Variables & Secrets Management",
         "Production Deployment Practices",
+        "Docker (Containerization & Service Deployment)", // ← PRIDĖK ŠIĄ EILUTĘ
+        "DNS Filtering & Network Security (AdGuard Home)",
       ],
     },
     {
