@@ -122,6 +122,7 @@ const Experience = () => {
         "MITM & Attack Surface Awareness",
         "Backend Exposure Risk Analysis",
         "Security-Oriented System Thinking",
+        "DNS-Level Network Protection",
       ],
     },
   ];
