@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./LikeButton.css";
 
 const SUPABASE_URL = "https://pnmbokqqxmnjmrlierzk.supabase.co";
-const SUPABASE_KEY = "ĮDĖK_NAUJĄ_ANON_KEY"; // ← įdėk savo naują raktą
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBubWJva3FxeG1uam1ybGllcnprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkwOTM1NzMsImV4cCI6MjA5NDY2OTU3M30.tUNR73YETBqj7Td8jlNGd68xiPGtETOmdKM43gLy5O8"; // ← įdėk savo naują raktą
 
 const REACTIONS = [
   { emoji: "👎", label: "Thumbs down", id: "thumbs_down" },
