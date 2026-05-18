@@ -1,54 +1,84 @@
 import React, { useState, useEffect } from "react";
 import "./LikeButton.css";
 
+const SUPABASE_URL = "https://pnmbokqqxmnjmrlierzk.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBubWJva3FxeG1uam1ybGllcnprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkwOTM1NzMsImV4cCI6MjA5NDY2OTU3M30.tUNR73YETBqj7Td8jlNGd68xiPGtETOmdKM43gLy5O8"; // ← įdėk naują raktą po regeneravimo
+
 const REACTIONS = [
-  { emoji: "👎", label: "Thumbs down" },
-  { emoji: "👊", label: "Fist bump" },
-  { emoji: "👍", label: "Thumbs up" },
-  { emoji: "❤️",  label: "Love" },
+  { emoji: "👎", label: "Thumbs down", id: "thumbs_down" },
+  { emoji: "👊", label: "Fist bump",   id: "fist"        },
+  { emoji: "👍", label: "Thumbs up",   id: "thumbs_up"   },
+  { emoji: "❤️",  label: "Love",        id: "heart"       },
 ];
 
 const LIKE_T = {
   en: { label: "How did you like it?", reactions: ["reaction", "reactions"] },
-  lt: { label: "Kaip patiko?", reactions: ["reakcija", "reakcijos"] },
+  lt: { label: "Kaip patiko?",          reactions: ["reakcija", "reakcijos"] },
   de: { label: "Wie hat es Ihnen gefallen?", reactions: ["Reaktion", "Reaktionen"] },
-  fr: { label: "Comment avez-vous aimé?", reactions: ["réaction", "réactions"] },
-  it: { label: "Come ti è piaciuto?", reactions: ["reazione", "reazioni"] },
-  es: { label: "¿Cómo te gustó?", reactions: ["reacción", "reacciones"] },
-  uk: { label: "Як вам сподобалось?", reactions: ["реакція", "реакцій"] },
-  zh: { label: "你觉得怎么样？", reactions: ["反应", "反应"] },
-  ru: { label: "Как вам понравилось?", reactions: ["реакция", "реакций"] },
+  fr: { label: "Comment avez-vous aimé?",    reactions: ["réaction", "réactions"] },
+  it: { label: "Come ti è piaciuto?",        reactions: ["reazione", "reazioni"] },
+  es: { label: "¿Cómo te gustó?",            reactions: ["reacción", "reacciones"] },
+  uk: { label: "Як вам сподобалось?",        reactions: ["реакція", "реакцій"] },
+  zh: { label: "你觉得怎么样？",              reactions: ["反应", "反应"] },
+  ru: { label: "Как вам понравилось?",       reactions: ["реакция", "реакций"] },
 };
 
 const getLang = () => { try { return localStorage.getItem("portfolioLang") || "en"; } catch { return "en"; } };
 
-const LikeButton = () => {
-  const [counts, setCounts] = useState(() => {
-    try {
-      const saved = localStorage.getItem("portfolio_reactions");
-      const parsed = saved ? JSON.parse(saved) : [0, 0, 0, 0];
-      return Array.isArray(parsed) && parsed.length === 4
-        ? parsed.map(n => (typeof n === "number" && !isNaN(n) ? n : 0))
-        : [0, 0, 0, 0];
-    } catch { return [0, 0, 0, 0]; }
+// ── Supabase helpers ──
+async function fetchCounts() {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/reactions?select=id,count`, {
+    headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` },
   });
+  return res.json(); // [{ id, count }, ...]
+}
 
+async function increment(id) {
+  await fetch(`${SUPABASE_URL}/rest/v1/rpc/increment_reaction`, {
+    method: "POST",
+    headers: {
+      apikey: SUPABASE_KEY,
+      Authorization: `Bearer ${SUPABASE_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ reaction_id: id }),
+  });
+}
+
+async function decrement(id) {
+  await fetch(`${SUPABASE_URL}/rest/v1/rpc/decrement_reaction`, {
+    method: "POST",
+    headers: {
+      apikey: SUPABASE_KEY,
+      Authorization: `Bearer ${SUPABASE_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ reaction_id: id }),
+  });
+}
+
+const LikeButton = () => {
+  const [counts, setCounts] = useState([0, 0, 0, 0]);
   const [active, setActive] = useState(() => {
     try { return JSON.parse(localStorage.getItem("portfolio_reactions_active") || "null"); }
     catch { return null; }
   });
-
   const [burst, setBurst]       = useState(null);
   const [floaters, setFloaters] = useState([]);
   const [lang, setLang]         = useState(getLang);
 
+  // Pakrauk skaičius iš Supabase
   useEffect(() => {
-    localStorage.setItem("portfolio_reactions", JSON.stringify(counts));
-  }, [counts]);
-
-  useEffect(() => {
-    localStorage.setItem("portfolio_reactions_active", JSON.stringify(active));
-  }, [active]);
+    fetchCounts().then(data => {
+      if (!Array.isArray(data)) return;
+      const next = [0, 0, 0, 0];
+      REACTIONS.forEach((r, i) => {
+        const row = data.find(d => d.id === r.id);
+        if (row) next[i] = row.count;
+      });
+      setCounts(next);
+    }).catch(() => {});
+  }, []);
 
   useEffect(() => {
     const handler = () => setLang(getLang());
@@ -58,7 +88,7 @@ const LikeButton = () => {
 
   const t = LIKE_T[lang] || LIKE_T["en"];
 
-  const handleClick = (i) => {
+  const handleClick = async (i) => {
     setBurst(i);
     setTimeout(() => setBurst(null), 400);
 
@@ -66,18 +96,24 @@ const LikeButton = () => {
     setFloaters(f => [...f, { id, i }]);
     setTimeout(() => setFloaters(f => f.filter(x => x.id !== id)), 1000);
 
-    setCounts(prev => {
-      const next = [...prev];
-      if (active === i) {
-        next[i] = Math.max(0, next[i] - 1);
-        setActive(null);
-      } else {
-        if (active !== null) next[active] = Math.max(0, next[active] - 1);
-        next[i] += 1;
-        setActive(i);
+    const prevActive = active;
+
+    if (prevActive === i) {
+      // untoggle
+      setActive(null);
+      localStorage.setItem("portfolio_reactions_active", "null");
+      setCounts(prev => { const n = [...prev]; n[i] = Math.max(0, n[i] - 1); return n; });
+      await decrement(REACTIONS[i].id);
+    } else {
+      if (prevActive !== null) {
+        setCounts(prev => { const n = [...prev]; n[prevActive] = Math.max(0, n[prevActive] - 1); return n; });
+        await decrement(REACTIONS[prevActive].id);
       }
-      return next;
-    });
+      setActive(i);
+      localStorage.setItem("portfolio_reactions_active", JSON.stringify(i));
+      setCounts(prev => { const n = [...prev]; n[i] += 1; return n; });
+      await increment(REACTIONS[i].id);
+    }
   };
 
   const total = counts.reduce((a, b) => a + b, 0);
