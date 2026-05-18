@@ -8,11 +8,12 @@ import Portfolio from './components/portfolio/Portfolio';
 import Testimonials from './components/testimonials/Testimonials';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
-
+import { LangProvider } from "./components/theme/LangContext";
 
 const App = () => {
   return (
-    <>
+    <LangProvider>
+      <>
       <Header />
       <Nav />
       <About />
@@ -22,7 +23,8 @@ const App = () => {
       <Testimonials />
       <Contact />
       <Footer />
-    </>
+      </>
+    </LangProvider>
   )
 }
 

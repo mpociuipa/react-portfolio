@@ -50,7 +50,12 @@ header {
   display: block;
   line-height: 1.45;
 }
-
+.header__topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  /* likusios esamos taisyklės */
+}
 /* Desktop skills grid */
 @media screen and (min-width: 1025px) {
   .header__skills {

@@ -1,15 +1,26 @@
 import React, { useEffect, useState } from "react";
+import { useLang } from "./LangContext";
 
-const THEME_KEY = "theme"; // "light" | "dark"
+const THEME_KEY = "theme";
+
+const THEME_TRANSLATIONS = {
+  en: { light: "Light", dark: "Dark" },
+  lt: { light: "Šviesi", dark: "Tamsi" },
+  de: { light: "Hell", dark: "Dunkel" },
+  fr: { light: "Clair", dark: "Sombre" },
+  it: { light: "Chiaro", dark: "Scuro" },
+  es: { light: "Claro", dark: "Oscuro" },
+  uk: { light: "Світла", dark: "Темна" },
+  zh: { light: "浅色", dark: "深色" },
+  ru: { light: "Светлая", dark: "Тёмная" },
+};
 
 const getPreferredTheme = () => {
   const saved = localStorage.getItem(THEME_KEY);
   if (saved === "light" || saved === "dark") return saved;
-
   const prefersLight =
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: light)").matches;
-
   return prefersLight ? "light" : "dark";
 };
 
@@ -20,6 +31,9 @@ const applyTheme = (theme) => {
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState("dark");
+  const { langCode } = useLang();
+  console.log("ThemeToggle langCode:", langCode); 
+  const t = THEME_TRANSLATIONS[langCode] || THEME_TRANSLATIONS["en"];
 
   useEffect(() => {
     const initial = getPreferredTheme();
@@ -46,7 +60,7 @@ const ThemeToggle = () => {
         {theme === "dark" ? "☀️" : "🌙"}
       </span>
       <span className="theme-toggle__text">
-        {theme === "dark" ? "Light" : "Dark"}
+        {theme === "dark" ? t.light : t.dark}
       </span>
     </button>
   );

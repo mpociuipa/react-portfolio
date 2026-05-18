@@ -1,0 +1,103 @@
+.lang-switcher {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ── Mygtukas ── */
+.lang-switcher__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.7rem;
+  background: transparent;
+  border: 1px solid var(--color-primary, #4db5ff);
+  border-radius: 0.4rem;
+  color: var(--color-primary, #4db5ff);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.lang-switcher__btn:hover {
+  background: var(--color-primary, #4db5ff);
+  color: #fff;
+}
+.lang-switcher__btn--loading {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.lang-switcher__globe { font-size: 0.9rem; }
+.lang-switcher__label { font-size: 1rem; line-height: 1; }
+
+.lang-switcher__chevron {
+  font-size: 0.5rem;
+  opacity: 0.7;
+  transition: transform 0.2s;
+}
+.lang-switcher__chevron--open {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown ── */
+.lang-switcher__dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 160px;
+  background: var(--color-bg-variant, #1e1e2e);
+  border: 1px solid var(--color-primary-variant, #2c2c6c);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  z-index: 9999;
+  list-style: none;
+  padding: 0.3rem 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  animation: langDropIn 0.18s ease;
+}
+
+@keyframes langDropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.lang-switcher__option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: var(--color-light, #a8a8b3);
+  transition: background 0.15s, color 0.15s;
+}
+.lang-switcher__option:hover {
+  background: var(--color-primary-variant, #2c2c6c);
+  color: var(--color-primary, #4db5ff);
+}
+.lang-switcher__option--active {
+  color: var(--color-primary, #4db5ff);
+}
+
+.lang-switcher__flag { font-size: 1rem; }
+.lang-switcher__name { flex: 1; }
+.lang-switcher__check {
+  font-size: 0.7rem;
+  color: var(--color-primary, #4db5ff);
+}
+
+/* ── Įkrovimo juosta ── */
+.lang-switcher__bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary, #4db5ff), transparent, var(--color-primary, #4db5ff));
+  background-size: 200% 100%;
+  animation: langBar 1s infinite linear;
+  z-index: 99999;
+}
+@keyframes langBar {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}

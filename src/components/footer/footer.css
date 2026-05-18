@@ -103,3 +103,80 @@ body.dark footer {
     margin-bottom: 2.6rem;
   }
 }
+/* ================= SUBSCRIBE FORM (COMPACT + UNIFIED STYLE) ================= */
+
+.footer__subscribe-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.5rem;
+
+  max-width: 360px;   /* 👈 SIAURESNIS BLOKAS */
+  margin: 0 auto;
+}
+
+/* ================= INPUT = SAME STYLE AS BUTTON ================= */
+
+.footer__subscribe-form input {
+  flex: 1;
+
+  padding: 0.7rem 0.9rem;
+
+  border-radius: 0.7rem;
+
+  background: var(--footer-card-bg);
+  border: 1px solid var(--footer-card-border);
+
+  color: var(--footer-card-text);
+
+  outline: none;
+
+  transition: var(--transition);
+}
+
+/* hover + focus like button feel */
+.footer__subscribe-form input:focus {
+  transform: translateY(-2px);
+  border-color: var(--footer-text);
+  background: transparent;
+}
+
+/* placeholder */
+.footer__subscribe-form input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* focus metu placeholder dingsta švelniai */
+.footer__subscribe-form input:focus::placeholder {
+  opacity: 0.3;
+  transition: 0.2s ease;
+}
+
+/* ================= BUTTON (COMPACT LIKE ICONS) ================= */
+
+.footer__subscribe-form button {
+  padding: 0.7rem 0.9rem;
+
+  border-radius: 0.7rem;
+
+  background: var(--footer-card-bg);
+  color: var(--footer-card-text);
+
+  border: 1px solid var(--footer-card-border);
+
+  cursor: pointer;
+
+  transition: var(--transition);
+
+  white-space: nowrap;
+}
+
+/* same hover system as socials */
+.footer__subscribe-form button:hover {
+  background: transparent;
+  color: var(--footer-text);
+  border-color: var(--footer-card-border);
+
+  transform: translateY(-3px);
+}
