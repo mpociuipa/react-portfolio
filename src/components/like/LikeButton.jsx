@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./LikeButton.css";
 
 const SUPABASE_URL = "https://pnmbokqqxmnjmrlierzk.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBubWJva3FxeG1uam1ybGllcnprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkwOTM1NzMsImV4cCI6MjA5NDY2OTU3M30.tUNR73YETBqj7Td8jlNGd68xiPGtETOmdKM43gLy5O8"; // ← įdėk naują raktą po regeneravimo
+const SUPABASE_KEY = "ĮDĖK_NAUJĄ_ANON_KEY"; // ← įdėk savo naują raktą
 
 const REACTIONS = [
   { emoji: "👎", label: "Thumbs down", id: "thumbs_down" },
@@ -25,35 +25,28 @@ const LIKE_T = {
 
 const getLang = () => { try { return localStorage.getItem("portfolioLang") || "en"; } catch { return "en"; } };
 
-// ── Supabase helpers ──
+const HEADERS = {
+  apikey: SUPABASE_KEY,
+  Authorization: `Bearer ${SUPABASE_KEY}`,
+  "Content-Type": "application/json",
+  Prefer: "return=representation",
+};
+
 async function fetchCounts() {
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/reactions?select=id,count`, {
-    headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` },
-  });
-  return res.json(); // [{ id, count }, ...]
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/reactions?select=id,count`, { headers: HEADERS });
+  return res.json();
 }
 
-async function increment(id) {
-  await fetch(`${SUPABASE_URL}/rest/v1/rpc/increment_reaction`, {
-    method: "POST",
-    headers: {
-      apikey: SUPABASE_KEY,
-      Authorization: `Bearer ${SUPABASE_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ reaction_id: id }),
-  });
-}
-
-async function decrement(id) {
-  await fetch(`${SUPABASE_URL}/rest/v1/rpc/decrement_reaction`, {
-    method: "POST",
-    headers: {
-      apikey: SUPABASE_KEY,
-      Authorization: `Bearer ${SUPABASE_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ reaction_id: id }),
+async function updateCount(id, delta) {
+  // Pirma gauk dabartinę reikšmę
+  const res  = await fetch(`${SUPABASE_URL}/rest/v1/reactions?id=eq.${id}&select=count`, { headers: HEADERS });
+  const data = await res.json();
+  if (!data || !data[0]) return;
+  const newCount = Math.max(0, data[0].count + delta);
+  await fetch(`${SUPABASE_URL}/rest/v1/reactions?id=eq.${id}`, {
+    method: "PATCH",
+    headers: HEADERS,
+    body: JSON.stringify({ count: newCount }),
   });
 }
 
@@ -67,7 +60,6 @@ const LikeButton = () => {
   const [floaters, setFloaters] = useState([]);
   const [lang, setLang]         = useState(getLang);
 
-  // Pakrauk skaičius iš Supabase
   useEffect(() => {
     fetchCounts().then(data => {
       if (!Array.isArray(data)) return;
@@ -99,20 +91,19 @@ const LikeButton = () => {
     const prevActive = active;
 
     if (prevActive === i) {
-      // untoggle
       setActive(null);
       localStorage.setItem("portfolio_reactions_active", "null");
       setCounts(prev => { const n = [...prev]; n[i] = Math.max(0, n[i] - 1); return n; });
-      await decrement(REACTIONS[i].id);
+      await updateCount(REACTIONS[i].id, -1);
     } else {
       if (prevActive !== null) {
         setCounts(prev => { const n = [...prev]; n[prevActive] = Math.max(0, n[prevActive] - 1); return n; });
-        await decrement(REACTIONS[prevActive].id);
+        await updateCount(REACTIONS[prevActive].id, -1);
       }
       setActive(i);
       localStorage.setItem("portfolio_reactions_active", JSON.stringify(i));
       setCounts(prev => { const n = [...prev]; n[i] += 1; return n; });
-      await increment(REACTIONS[i].id);
+      await updateCount(REACTIONS[i].id, 1);
     }
   };
 
