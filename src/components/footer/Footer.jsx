@@ -4,7 +4,7 @@ import "./footer.css";
 import { FaLinkedinIn, FaGithub, FaFacebookF } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
 import { IoLogoTwitter } from "react-icons/io";
-
+import LikeButton from "../like/LikeButton";
 import Reveal from "../animations/Reveal";
 import { Stagger, StaggerItem } from "../animations/Stagger";
 
@@ -98,7 +98,7 @@ const Footer = () => {
           {message && <p className="form-message">{message}</p>}
         </div>
       </Reveal>
-
+          <LikeButton />
       <Reveal y={8} delay={0.2}>
         <div className="footer__copyright">
           <small>© {new Date().getFullYear()} Mantas Počiuipa. {t.copyright}</small>
