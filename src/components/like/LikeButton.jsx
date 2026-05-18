@@ -9,12 +9,15 @@ const REACTIONS = [
 ];
 
 const LikeButton = () => {
-  const [counts, setCounts]       = useState(() => {
-    try {
-      const saved = localStorage.getItem("portfolio_reactions");
-      return saved ? JSON.parse(saved) : [0, 0, 0];
-    } catch { return [0, 0, 0]; }
-  });
+  const [counts, setCounts] = useState(() => {
+  try {
+    const saved = localStorage.getItem("portfolio_reactions");
+    const parsed = saved ? JSON.parse(saved) : [0, 0, 0];
+    return Array.isArray(parsed) && parsed.length === 3
+      ? parsed.map(n => (typeof n === "number" && !isNaN(n) ? n : 0))
+      : [0, 0, 0];
+  } catch { return [0, 0, 0]; }
+});
   const [active, setActive]       = useState(() => {
     try { return JSON.parse(localStorage.getItem("portfolio_reactions_active") || "null"); }
     catch { return null; }
