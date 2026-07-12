@@ -1,19 +1,31 @@
 import React, { useState, useEffect } from "react";
 import "./portfolio.css";
-import IMG1 from "../../assets/arklys.jpg";
-import IMG2 from "../../assets/arklys.jpg";
-import IMG3 from "../../assets/lektuvas.png";
-import IMG4 from "../../assets/Lenktynės.png";
-import IMG5 from "../../assets/Lenktynės.jpg";
-import IMG6 from "../../assets/Namas.jpg";
-import IMG7 from "../../assets/nama.jpg";
-import IMG8 from "../../assets/Javascript.png";
-import IMG9 from "../../assets/linux.png";
-import IMG10 from "../../assets/Health_Manager.jpg";
+import IMG1 from "../../assets/horse-ironing-board-app.jpg";
+import IMG2 from "../../assets/horse-ironing-board-app.jpg";
+import IMG3 from "../../assets/crimson-sky-firestorm-arena-app.png";
+import IMG4 from "../../assets/3d-race-game-windows.png";
+import IMG5 from "../../assets/3d-race-game-windows.jpg";
+import IMG6 from "../../assets/houses-construction-app.jpg";
+import IMG7 from "../../assets/house-construction-app.jpg";
+import IMG8 from "../../assets/javascript-python-course.png";
+import IMG9 from "../../assets/linux-training-windows.png";
+import IMG10 from "../../assets/health-manager-app.jpg";
 import Reveal from "../animations/Reveal";
 
-const images = [IMG1,IMG2,IMG3,IMG4,IMG5,IMG6,IMG7,IMG8,IMG9,IMG3,IMG10];
-const demos  = [
+const images = [
+  IMG1,
+  IMG2,
+  IMG3,
+  IMG4,
+  IMG5,
+  IMG6,
+  IMG7,
+  IMG8,
+  IMG9,
+  IMG3,
+  IMG10,
+];
+const demos = [
   "https://manthispoc.gumroad.com/l/epptjq",
   "https://manthispoc.gumroad.com/l/lykjt",
   "https://manthispoc.gumroad.com/l/dinhw",
@@ -28,126 +40,177 @@ const demos  = [
 ];
 
 const PORTFOLIO_T = {
-  en: { sub: "My Recent Work", title: "Portfolio", btn: "To pay", titles: [
-    "Cheerful horse on android",
-    "Cheerful horse on windows",
-    "Crimson Sky Firestorm Arena on windows",
-    "3D Race game on windows",
-    "3D Race game on android",
-    "Home construction app for Lithuanians",
-    "Home construction app on windows (EN)",
-    "Learn to code Javascript, Python, Databases (Windows, LT)",
-    "Linux training on Windows for free (LT)",
-    "Crimson Sky Firestorm Arena on android",
-    "Health Manager on windows",
-  ]},
-  lt: { sub: "Mano naujausi darbai", title: "Portfelis", btn: "Pirkti", titles: [
-    "Linksmas arklys ant android",
-    "Linksmas arklys ant windows",
-    "Crimson Sky Firestorm Arena ant windows",
-    "3D Lenktynių žaidimas ant windows",
-    "3D Lenktynių žaidimas ant android",
-    "Namų statybos programa lietuviams",
-    "Namų statybos programa ant windows (EN)",
-    "Išmok programuoti Javascript, Python, Duomenų bazės (Windows, LT)",
-    "Linux mokymai ant Windows nemokamai (LT)",
-    "Crimson Sky Firestorm Arena ant android",
-    "Sveikatos valdytojas ant windows",
-  ]},
-  de: { sub: "Meine neuesten Arbeiten", title: "Portfolio", btn: "Kaufen", titles: [
-    "Fröhliches Pferd auf Android",
-    "Fröhliches Pferd auf Windows",
-    "Crimson Sky Firestorm Arena auf Windows",
-    "3D-Rennspiel auf Windows",
-    "3D-Rennspiel auf Android",
-    "Hausbau-App für Litauer",
-    "Hausbau-App auf Windows (EN)",
-    "Lerne Javascript, Python, Datenbanken (Windows, LT)",
-    "Linux-Training auf Windows kostenlos (LT)",
-    "Crimson Sky Firestorm Arena auf Android",
-    "Gesundheitsmanager auf Windows",
-  ]},
-  fr: { sub: "Mes travaux récents", title: "Portfolio", btn: "Acheter", titles: [
-    "Cheval joyeux sur Android",
-    "Cheval joyeux sur Windows",
-    "Crimson Sky Firestorm Arena sur Windows",
-    "Jeu de course 3D sur Windows",
-    "Jeu de course 3D sur Android",
-    "Application de construction pour Lituaniens",
-    "Application de construction sur Windows (EN)",
-    "Apprendre Javascript, Python, Bases de données (Windows, LT)",
-    "Formation Linux sur Windows gratuitement (LT)",
-    "Crimson Sky Firestorm Arena sur Android",
-    "Gestionnaire de santé sur Windows",
-  ]},
-  it: { sub: "I miei lavori recenti", title: "Portfolio", btn: "Acquistare", titles: [
-    "Cavallo allegro su Android",
-    "Cavallo allegro su Windows",
-    "Crimson Sky Firestorm Arena su Windows",
-    "Gioco di corse 3D su Windows",
-    "Gioco di corse 3D su Android",
-    "App di costruzione casa per Lituani",
-    "App di costruzione casa su Windows (EN)",
-    "Impara Javascript, Python, Database (Windows, LT)",
-    "Formazione Linux su Windows gratuitamente (LT)",
-    "Crimson Sky Firestorm Arena su Android",
-    "Gestore della salute su Windows",
-  ]},
-  es: { sub: "Mi trabajo reciente", title: "Portfolio", btn: "Comprar", titles: [
-    "Caballo alegre en Android",
-    "Caballo alegre en Windows",
-    "Crimson Sky Firestorm Arena en Windows",
-    "Juego de carreras 3D en Windows",
-    "Juego de carreras 3D en Android",
-    "App de construcción para lituanos",
-    "App de construcción en Windows (EN)",
-    "Aprende Javascript, Python, Bases de datos (Windows, LT)",
-    "Entrenamiento Linux en Windows gratis (LT)",
-    "Crimson Sky Firestorm Arena en Android",
-    "Administrador de salud en Windows",
-  ]},
-  uk: { sub: "Мої останні роботи", title: "Портфоліо", btn: "Купити", titles: [
-    "Веселий кінь на Android",
-    "Веселий кінь на Windows",
-    "Crimson Sky Firestorm Arena на Windows",
-    "3D гонки на Windows",
-    "3D гонки на Android",
-    "Додаток для будівництва для литовців",
-    "Додаток для будівництва на Windows (EN)",
-    "Вчи Javascript, Python, Бази даних (Windows, LT)",
-    "Навчання Linux на Windows безкоштовно (LT)",
-    "Crimson Sky Firestorm Arena на Android",
-    "Менеджер здоров'я на Windows",
-  ]},
-  zh: { sub: "我的近期作品", title: "作品集", btn: "购买", titles: [
-    "快乐的马 - Android版",
-    "快乐的马 - Windows版",
-    "Crimson Sky Firestorm Arena - Windows版",
-    "3D赛车游戏 - Windows版",
-    "3D赛车游戏 - Android版",
-    "立陶宛人的家庭建设应用",
-    "家庭建设应用 - Windows版 (EN)",
-    "学习Javascript、Python、数据库 (Windows, LT)",
-    "Windows上免费Linux培训 (LT)",
-    "Crimson Sky Firestorm Arena - Android版",
-    "健康管理器 - Windows版",
-  ]},
-  ru: { sub: "Мои последние работы", title: "Портфолио", btn: "Купить", titles: [
-    "Весёлая лошадь на Android",
-    "Весёлая лошадь на Windows",
-    "Crimson Sky Firestorm Arena на Windows",
-    "3D гонки на Windows",
-    "3D гонки на Android",
-    "Приложение для строительства для литовцев",
-    "Приложение для строительства на Windows (EN)",
-    "Учи Javascript, Python, Базы данных (Windows, LT)",
-    "Обучение Linux на Windows бесплатно (LT)",
-    "Crimson Sky Firestorm Arena на Android",
-    "Менеджер здоровья на Windows",
-  ]},
+  en: {
+    sub: "My Recent Work",
+    title: "Portfolio",
+    btn: "To pay",
+    titles: [
+      "Cheerful horse on android",
+      "Cheerful horse on windows",
+      "Crimson Sky Firestorm Arena on windows",
+      "3D Race game on windows",
+      "3D Race game on android",
+      "Home construction app for Lithuanians",
+      "Home construction app on windows (EN)",
+      "Learn to code Javascript, Python, Databases (Windows, LT)",
+      "Linux training on Windows for free (LT)",
+      "Crimson Sky Firestorm Arena on android",
+      "Health Manager on windows",
+    ],
+  },
+  lt: {
+    sub: "Mano naujausi darbai",
+    title: "Portfelis",
+    btn: "Pirkti",
+    titles: [
+      "Linksmas arklys ant android",
+      "Linksmas arklys ant windows",
+      "Crimson Sky Firestorm Arena ant windows",
+      "3D Lenktynių žaidimas ant windows",
+      "3D Lenktynių žaidimas ant android",
+      "Namų statybos programa lietuviams",
+      "Namų statybos programa ant windows (EN)",
+      "Išmok programuoti Javascript, Python, Duomenų bazės (Windows, LT)",
+      "Linux mokymai ant Windows nemokamai (LT)",
+      "Crimson Sky Firestorm Arena ant android",
+      "Sveikatos valdytojas ant windows",
+    ],
+  },
+  de: {
+    sub: "Meine neuesten Arbeiten",
+    title: "Portfolio",
+    btn: "Kaufen",
+    titles: [
+      "Fröhliches Pferd auf Android",
+      "Fröhliches Pferd auf Windows",
+      "Crimson Sky Firestorm Arena auf Windows",
+      "3D-Rennspiel auf Windows",
+      "3D-Rennspiel auf Android",
+      "Hausbau-App für Litauer",
+      "Hausbau-App auf Windows (EN)",
+      "Lerne Javascript, Python, Datenbanken (Windows, LT)",
+      "Linux-Training auf Windows kostenlos (LT)",
+      "Crimson Sky Firestorm Arena auf Android",
+      "Gesundheitsmanager auf Windows",
+    ],
+  },
+  fr: {
+    sub: "Mes travaux récents",
+    title: "Portfolio",
+    btn: "Acheter",
+    titles: [
+      "Cheval joyeux sur Android",
+      "Cheval joyeux sur Windows",
+      "Crimson Sky Firestorm Arena sur Windows",
+      "Jeu de course 3D sur Windows",
+      "Jeu de course 3D sur Android",
+      "Application de construction pour Lituaniens",
+      "Application de construction sur Windows (EN)",
+      "Apprendre Javascript, Python, Bases de données (Windows, LT)",
+      "Formation Linux sur Windows gratuitement (LT)",
+      "Crimson Sky Firestorm Arena sur Android",
+      "Gestionnaire de santé sur Windows",
+    ],
+  },
+  it: {
+    sub: "I miei lavori recenti",
+    title: "Portfolio",
+    btn: "Acquistare",
+    titles: [
+      "Cavallo allegro su Android",
+      "Cavallo allegro su Windows",
+      "Crimson Sky Firestorm Arena su Windows",
+      "Gioco di corse 3D su Windows",
+      "Gioco di corse 3D su Android",
+      "App di costruzione casa per Lituani",
+      "App di costruzione casa su Windows (EN)",
+      "Impara Javascript, Python, Database (Windows, LT)",
+      "Formazione Linux su Windows gratuitamente (LT)",
+      "Crimson Sky Firestorm Arena su Android",
+      "Gestore della salute su Windows",
+    ],
+  },
+  es: {
+    sub: "Mi trabajo reciente",
+    title: "Portfolio",
+    btn: "Comprar",
+    titles: [
+      "Caballo alegre en Android",
+      "Caballo alegre en Windows",
+      "Crimson Sky Firestorm Arena en Windows",
+      "Juego de carreras 3D en Windows",
+      "Juego de carreras 3D en Android",
+      "App de construcción para lituanos",
+      "App de construcción en Windows (EN)",
+      "Aprende Javascript, Python, Bases de datos (Windows, LT)",
+      "Entrenamiento Linux en Windows gratis (LT)",
+      "Crimson Sky Firestorm Arena en Android",
+      "Administrador de salud en Windows",
+    ],
+  },
+  uk: {
+    sub: "Мої останні роботи",
+    title: "Портфоліо",
+    btn: "Купити",
+    titles: [
+      "Веселий кінь на Android",
+      "Веселий кінь на Windows",
+      "Crimson Sky Firestorm Arena на Windows",
+      "3D гонки на Windows",
+      "3D гонки на Android",
+      "Додаток для будівництва для литовців",
+      "Додаток для будівництва на Windows (EN)",
+      "Вчи Javascript, Python, Бази даних (Windows, LT)",
+      "Навчання Linux на Windows безкоштовно (LT)",
+      "Crimson Sky Firestorm Arena на Android",
+      "Менеджер здоров'я на Windows",
+    ],
+  },
+  zh: {
+    sub: "我的近期作品",
+    title: "作品集",
+    btn: "购买",
+    titles: [
+      "快乐的马 - Android版",
+      "快乐的马 - Windows版",
+      "Crimson Sky Firestorm Arena - Windows版",
+      "3D赛车游戏 - Windows版",
+      "3D赛车游戏 - Android版",
+      "立陶宛人的家庭建设应用",
+      "家庭建设应用 - Windows版 (EN)",
+      "学习Javascript、Python、数据库 (Windows, LT)",
+      "Windows上免费Linux培训 (LT)",
+      "Crimson Sky Firestorm Arena - Android版",
+      "健康管理器 - Windows版",
+    ],
+  },
+  ru: {
+    sub: "Мои последние работы",
+    title: "Портфолио",
+    btn: "Купить",
+    titles: [
+      "Весёлая лошадь на Android",
+      "Весёлая лошадь на Windows",
+      "Crimson Sky Firestorm Arena на Windows",
+      "3D гонки на Windows",
+      "3D гонки на Android",
+      "Приложение для строительства для литовцев",
+      "Приложение для строительства на Windows (EN)",
+      "Учи Javascript, Python, Базы данных (Windows, LT)",
+      "Обучение Linux на Windows бесплатно (LT)",
+      "Crimson Sky Firestorm Arena на Android",
+      "Менеджер здоровья на Windows",
+    ],
+  },
 };
 
-const getLang = () => { try { return localStorage.getItem("portfolioLang") || "en"; } catch { return "en"; } };
+const getLang = () => {
+  try {
+    return localStorage.getItem("portfolioLang") || "en";
+  } catch {
+    return "en";
+  }
+};
 
 const Portfolio = () => {
   const [lang, setLang] = useState(getLang);
@@ -163,20 +226,43 @@ const Portfolio = () => {
   return (
     <section id="portfolio">
       <div className="section__header">
-        <Reveal y={10}><h5>{t.sub}</h5></Reveal>
-        <Reveal y={12} delay={0.06}><h2>{t.title}</h2></Reveal>
+        <Reveal y={10}>
+          <h5>{t.sub}</h5>
+        </Reveal>
+        <Reveal y={12} delay={0.06}>
+          <h2>{t.title}</h2>
+        </Reveal>
       </div>
       <div className="container portfolio__container">
         {t.titles.map((title, i) => (
           <Reveal key={i} y={14} delay={i * 0.06}>
             <article className="portfolio__item">
               <div className="portfolio__item-image">
-                <img src={images[i]} alt={title} loading="lazy" />
+                <img
+                  src={images[i]}
+                  alt={`${title} project by Mantas Počiuipa`}
+                  title={`${title} - Mantas Počiuipa`}
+                  loading="lazy"
+                />
               </div>
               <h3>{title}</h3>
               <div className="portfolio__item-cta">
-                <a href="https://github.com" className="btn" target="_blank" rel="noreferrer">GitHub</a>
-                <a href={demos[i]} className="btn btn-primary" target="_blank" rel="noreferrer">{t.btn}</a>
+                <a
+                  href="https://github.com"
+                  className="btn"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
+                </a>
+                <a
+                  href={demos[i]}
+                  className="btn btn-primary"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t.btn}
+                </a>
               </div>
             </article>
           </Reveal>
