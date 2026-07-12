@@ -4,7 +4,7 @@ import IMG1 from "../../assets/horse-ironing-board-app.jpg";
 import IMG2 from "../../assets/horse-ironing-board-app.jpg";
 import IMG3 from "../../assets/crimson-sky-firestorm-arena-app.png";
 import IMG4 from "../../assets/3d-race-game-windows.png";
-import IMG5 from "../../assets/3d-race-game-windows.jpg";
+import IMG5 from "../../assets/3d-race-game-windows.png";
 import IMG6 from "../../assets/houses-construction-app.jpg";
 import IMG7 from "../../assets/house-construction-app.jpg";
 import IMG8 from "../../assets/javascript-python-course.png";
