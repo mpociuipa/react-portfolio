@@ -10,11 +10,13 @@ import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
 import { LangProvider } from "./components/theme/LangContext";
 import CookieBanner from "./components/CookieBanner";
+import Schema from "./components/Schema";
 
 const App = () => {
   return (
     <LangProvider>
       <>
+      <Schema />
       <Header />
       <Nav />
       <About />

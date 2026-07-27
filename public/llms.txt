@@ -1,0 +1,38 @@
+# Mantas Počiuipa Portfolio
+
+Website:
+https://react-portfolio-steel-ten.vercel.app
+
+Author:
+Mantas Počiuipa
+
+Role:
+Full Stack Developer
+
+Specializations:
+- React
+- JavaScript
+- AI Applications
+- Desktop Software
+- Android Applications
+- Three.js
+- Game Development
+- Linux
+- Databases
+
+Projects:
+- Crimson Sky Firestorm Arena
+- 3D Race Game
+- House Construction App
+- Health Manager
+- JavaScript & Python Course
+- Linux Training
+
+Official portfolio:
+https://react-portfolio-steel-ten.vercel.app
+
+GitHub:
+https://github.com/mpociuipa
+
+LinkedIn:
+https://www.linkedin.com/in/mantas-po%C4%8Diuipa-373620257/
