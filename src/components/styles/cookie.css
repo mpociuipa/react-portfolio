@@ -1,0 +1,161 @@
+.cookie {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 99999;
+  animation: fadeIn .35s ease;
+}
+
+.cookie__box{
+  width:min(700px,95%);
+  margin:2rem;
+  background:rgba(30,30,45,.92);
+  border:1px solid rgba(77,181,255,.25);
+  border-radius:22px;
+  padding:2rem;
+  color:#fff;
+  box-shadow:
+      0 20px 60px rgba(0,0,0,.45),
+      0 0 30px rgba(77,181,255,.08);
+  animation:slideUp .45s ease;
+}
+
+.cookie__box h2{
+  margin-bottom:1rem;
+  color:#4db5ff;
+  font-size:1.5rem;
+}
+
+.cookie__box p{
+  line-height:1.7;
+  color:#d9d9d9;
+  margin-bottom:1.7rem;
+}
+
+.cookie__buttons{
+  display:flex;
+  gap:1rem;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+}
+
+.cookie__primary{
+  background:#4db5ff;
+  color:#111;
+  border:none;
+  border-radius:10px;
+  padding:.9rem 1.6rem;
+  cursor:pointer;
+  font-weight:700;
+  transition:.3s;
+}
+
+.cookie__primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 18px rgba(77,181,255,.45);
+}
+
+.cookie__secondary{
+  background:transparent;
+  border:1px solid #4db5ff;
+  color:#4db5ff;
+  border-radius:10px;
+  padding:.9rem 1.6rem;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.cookie__secondary:hover{
+  background:#4db5ff;
+  color:#111;
+}
+
+.cookie__links{
+  display:flex;
+  gap:1rem;
+  margin-top:1.3rem;
+  font-size:.9rem;
+}
+
+.cookie__links a{
+  color:#4db5ff;
+  text-decoration:none;
+}
+
+.cookie__links a:hover{
+  text-decoration:underline;
+}
+
+@keyframes slideUp{
+
+  from{
+      opacity:0;
+      transform:translateY(70px);
+  }
+
+  to{
+      opacity:1;
+      transform:translateY(0);
+  }
+
+}
+
+@keyframes fadeIn{
+
+  from{
+      opacity:0;
+  }
+
+  to{
+      opacity:1;
+  }
+
+}
+
+/* Tablet */
+
+@media(max-width:1024px){
+
+.cookie__box{
+
+padding:1.8rem;
+
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+.cookie{
+
+align-items:flex-end;
+
+}
+
+.cookie__box{
+
+margin:1rem;
+padding:1.4rem;
+
+}
+
+.cookie__buttons{
+
+flex-direction:column;
+
+}
+
+.cookie__primary,
+.cookie__secondary{
+
+width:100%;
+
+}
+
+}

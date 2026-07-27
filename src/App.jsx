@@ -9,6 +9,7 @@ import Testimonials from './components/testimonials/Testimonials';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
 import { LangProvider } from "./components/theme/LangContext";
+import CookieBanner from "./components/CookieBanner";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
       <Testimonials />
       <Contact />
       <Footer />
+      <CookieBanner />
       </>
     </LangProvider>
   )
