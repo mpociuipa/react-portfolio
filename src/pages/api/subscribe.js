@@ -60,9 +60,9 @@ export default async function handler(req, res) {
       }
     );
 
-    const data = await response.json();
+    const data = await response.json().catch(() => ({}));
 
-    console.log("BREVO RESPONSE:", data);
+
 
     if (!response.ok) {
       if (data.code === "duplicate_parameter") {

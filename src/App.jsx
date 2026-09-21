@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import Header from './components/header/Header';
 import Nav from './components/nav/Nav';
@@ -9,7 +10,7 @@ import Testimonials from './components/testimonials/Testimonials';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
 import { LangProvider } from "./components/theme/LangContext";
-import CookieBanner from "./components/CookieBanner";
+
 import Schema from "./components/Schema";
 
 const App = () => {
@@ -26,7 +27,7 @@ const App = () => {
       <Testimonials />
       <Contact />
       <Footer />
-      <CookieBanner />
+      
       </>
     </LangProvider>
   )

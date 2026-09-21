@@ -1,7 +1,8 @@
+import { usePortfolioLanguage } from "../../lib/language";
 import React, { useRef, useState, useEffect } from "react";
 import "./header.css";
 import CTA from "./CTA";
-import ME from "../../assets/me.png";
+const ME = "/assets/me.png";
 import HeaderSocial from "./HeaderSocials";
 import ThemeToggle from "../theme/ThemeToggle";
 import LanguageSwitcher from "../theme/LanguageSwitcher";
@@ -33,7 +34,7 @@ const Header = () => {
     return () => window.removeEventListener("langchange", handler);
   }, []);
 
-  const t = HEADER_T[getLang()] || HEADER_T["en"];
+  const t = HEADER_T[usePortfolioLanguage()] || HEADER_T["en"];
 
   const { scrollYProgress } = useScroll({ target: headerRef, offset: ["start start", "end start"] });
   const arcY = useTransform(scrollYProgress, [0, 1], [0, -40]);
@@ -65,6 +66,7 @@ const Header = () => {
         <motion.div className="header__topbar" {...reveal(0.05, 8)}>
           <ThemeToggle />
           <LanguageSwitcher />
+          <a href="/blog" className="btn">Blog</a>
         </motion.div>
 
         <div className="header__top">

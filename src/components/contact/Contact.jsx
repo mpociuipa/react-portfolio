@@ -1,3 +1,5 @@
+import { trackLead } from "../../lib/analytics";
+import { usePortfolioLanguage } from "../../lib/language";
 import React, { useRef, useState, useEffect } from "react";
 import "./contact.css";
 import { MdOutlineEmail } from "react-icons/md";
@@ -32,12 +34,12 @@ const Contact = () => {
     return () => window.removeEventListener("langchange", handler);
   }, []);
 
-  const t = CONTACT_T[getLang()] || CONTACT_T["en"];
+  const t = CONTACT_T[usePortfolioLanguage()] || CONTACT_T["en"];
 
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs.sendForm("service_sq6b9op", "template_k1x5xiq", form.current, "c7gM2rC3G9e3ntxxG")
-      .then(() => { setStatus("success"); form.current.reset(); }, () => { setStatus("error"); });
+      .then(() => { trackLead(form.current.elements.email.value, "contact"); setStatus("success"); form.current.reset(); }, () => { setStatus("error"); });
   };
 
   return (

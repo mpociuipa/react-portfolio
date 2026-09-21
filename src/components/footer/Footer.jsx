@@ -1,3 +1,4 @@
+import { trackLead } from "../../lib/analytics";
 import React, { useState, useEffect } from "react";
 import "./footer.css";
 
@@ -28,10 +29,11 @@ const Footer = () => {
   const [email, setEmail]     = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [lang, setLang]       = useState(getLang);
+  const [lang, setLang]       = useState("en");
 
   useEffect(() => {
     const handler = () => setLang(getLang());
+    handler();
     window.addEventListener("langchange", handler);
     return () => window.removeEventListener("langchange", handler);
   }, []);
@@ -46,7 +48,7 @@ const Footer = () => {
     try {
       const res  = await fetch("/api/subscribe", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email }) });
       const data = await res.json();
-      if (res.ok) { setMessage(data.message || t.successMsg); setEmail(""); }
+      if (res.ok) { trackLead(email, "newsletter"); setMessage(data.message || t.successMsg); setEmail(""); }
       else         { setMessage(data.message || t.failMsg); }
     } catch { setMessage(t.serverErr); }
     finally { setLoading(false); }
@@ -62,6 +64,7 @@ const Footer = () => {
       {/* NAVIGATION su Stagger – key={i} užtikrina kad animacija nevyktų iš naujo */}
       <Stagger>
         <ul className="permalinks">
+          <li><a href="/blog">Blog</a></li>
           {t.links.map((name, i) => (
             <StaggerItem key={i}>
               <li><a href={linkIds[i]}>{name}</a></li>

@@ -1,6 +1,7 @@
+import { usePortfolioLanguage } from "../../lib/language";
 import React, { useState, useEffect, useRef } from "react";
 import "./about.css";
-import ME from "../../assets/me-about.jpg";
+const ME = "/assets/me-about.jpg";
 import { FaAward } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
 import { VscFolderLibrary } from "react-icons/vsc";
@@ -121,7 +122,7 @@ const About = () => {
     return () => window.removeEventListener("langchange", handler);
   }, []);
 
-  const t = ABOUT_T[getLang()] || ABOUT_T["en"];
+  const t = ABOUT_T[usePortfolioLanguage()] || ABOUT_T["en"];
 
   const handleMouseEnter = () => { if (!videoRef.current) return; videoRef.current.play(); };
   const handleMouseLeave = () => { if (!videoRef.current) return; videoRef.current.pause(); videoRef.current.currentTime = 0; };
@@ -139,7 +140,7 @@ const About = () => {
           <div className="about__me">
             <div className="about__me-image" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
               <video ref={videoRef} muted playsInline className="about__video" aria-label="Mantas Počiuipa" poster={ME}>
-                <source src={require("../../assets/about-video.mp4")} type="video/mp4" />
+                <source src={"/assets/about-video.mp4"} type="video/mp4" />
               </video>
             </div>
           </div>

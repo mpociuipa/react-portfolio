@@ -1,10 +1,11 @@
+import { usePortfolioLanguage } from "../../lib/language";
 import React, { useState, useEffect } from "react";
 import "./testimonials.css";
-import AVTR1 from "../../assets/avatar1.jpg";
-import AVTR2 from "../../assets/avatar2.jpg";
-import AVTR3 from "../../assets/avatar3.jpg";
-import AVTR4 from "../../assets/avatar4.jpg";
-import AVTR5 from "../../assets/avatar5.jpg";
+const AVTR1 = "/assets/avatar1.jpg";
+const AVTR2 = "/assets/avatar2.jpg";
+const AVTR3 = "/assets/avatar3.jpg";
+const AVTR4 = "/assets/avatar4.jpg";
+const AVTR5 = "/assets/avatar5.jpg";
 import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -64,7 +65,7 @@ const Testimonials = () => {
     return () => window.removeEventListener("langchange", handler);
   }, []);
 
-  const t = TEST_T[getLang()] || TEST_T["en"];
+  const t = TEST_T[usePortfolioLanguage()] || TEST_T["en"];
 
   return (
     <section id="testimonials">

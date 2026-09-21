@@ -38,6 +38,9 @@ const LanguageSwitcher = () => {
     window.dispatchEvent(new Event("langchange"));
   }, [setLangCode]);
 
+  useEffect(() => {
+    try { const saved = LANGUAGES.find(l => l.code === localStorage.getItem('portfolioLang')); if (saved) { setCurrent(saved); setLangCode(saved.code); } } catch {}
+  }, [setLangCode]);
   return (
     <div className="lang-switcher" ref={wrapperRef}>
       <button

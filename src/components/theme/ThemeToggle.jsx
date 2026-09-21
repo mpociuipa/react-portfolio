@@ -32,7 +32,6 @@ const applyTheme = (theme) => {
 const ThemeToggle = () => {
   const [theme, setTheme] = useState("dark");
   const { langCode } = useLang();
-  console.log("ThemeToggle langCode:", langCode); 
   const t = THEME_TRANSLATIONS[langCode] || THEME_TRANSLATIONS["en"];
 
   useEffect(() => {

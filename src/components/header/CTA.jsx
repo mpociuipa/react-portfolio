@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CV from "../../assets/cv.pdf";
+const CV = "/assets/cv.pdf";
 
 const CTA_T = {
   en: { download: "Download CV", talk: "Let's Talk" },
@@ -16,10 +16,11 @@ const CTA_T = {
 const getLang = () => { try { return localStorage.getItem("portfolioLang") || "en"; } catch { return "en"; } };
 
 const CTA = ({ onLetsTalkClick }) => {
-  const [lang, setLang] = useState(getLang);
+  const [lang, setLang] = useState("en");
 
   useEffect(() => {
     const handler = () => setLang(getLang());
+    handler();
     window.addEventListener("langchange", handler);
     return () => window.removeEventListener("langchange", handler);
   }, []);

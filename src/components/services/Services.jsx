@@ -1,3 +1,4 @@
+import { usePortfolioLanguage } from "../../lib/language";
 import React, { useState, useEffect } from "react";
 import "./services.css";
 import { BiCheck } from "react-icons/bi";
@@ -90,7 +91,7 @@ const Services = () => {
     return () => window.removeEventListener("langchange", handler);
   }, []);
 
-  const t = SERVICES_T[getLang()] || SERVICES_T["en"];
+  const t = SERVICES_T[usePortfolioLanguage()] || SERVICES_T["en"];
 
   return (
     <section id="services">

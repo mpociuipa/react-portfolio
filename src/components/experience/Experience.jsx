@@ -145,10 +145,11 @@ const EXP_T = {
 const getLang = () => { try { return localStorage.getItem("portfolioLang") || "en"; } catch { return "en"; } };
 
 const Experience = () => {
-  const [lang, setLang] = useState(getLang);
+  const [lang, setLang] = useState("en");
 
   useEffect(() => {
     const handler = () => setLang(getLang());
+    handler();
     window.addEventListener("langchange", handler);
     return () => window.removeEventListener("langchange", handler);
   }, []);

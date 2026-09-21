@@ -52,13 +52,11 @@ async function updateCount(id, delta) {
 
 const LikeButton = () => {
   const [counts, setCounts] = useState([0, 0, 0, 0]);
-  const [active, setActive] = useState(() => {
-    try { return JSON.parse(localStorage.getItem("portfolio_reactions_active") || "null"); }
-    catch { return null; }
-  });
+  const [active, setActive] = useState(null);
+  useEffect(() => { try { setActive(JSON.parse(localStorage.getItem("portfolio_reactions_active") || "null")); } catch {} }, []);
   const [burst, setBurst]       = useState(null);
   const [floaters, setFloaters] = useState([]);
-  const [lang, setLang]         = useState(getLang);
+  const [lang, setLang]         = useState("en");
 
   useEffect(() => {
     fetchCounts().then(data => {
@@ -74,6 +72,7 @@ const LikeButton = () => {
 
   useEffect(() => {
     const handler = () => setLang(getLang());
+    handler();
     window.addEventListener("langchange", handler);
     return () => window.removeEventListener("langchange", handler);
   }, []);

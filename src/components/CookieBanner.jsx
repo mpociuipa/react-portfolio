@@ -23,6 +23,7 @@ export default function CookieBanner() {
       }),
     );
 
+    window.dispatchEvent(new Event("consentchange"));
     setShow(false);
   };
 
@@ -31,7 +32,8 @@ export default function CookieBanner() {
     return (
       <CookieSettings
         close={() => {
-          setShow(false);
+          window.dispatchEvent(new Event("consentchange"));
+    setShow(false);
           setShowSettings(false);
         }}
       />

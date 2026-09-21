@@ -23,6 +23,7 @@ export default function CookieSettings({ close }) {
       }),
     );
 
+    window.dispatchEvent(new Event("consentchange"));
     close();
   };
 

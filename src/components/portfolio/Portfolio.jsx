@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./portfolio.css";
 
-import IMG1 from "../../assets/horse-ironing-board-app.jpg";
-import IMG2 from "../../assets/horse-ironing-board-app.jpg";
-import IMG3 from "../../assets/crimson-sky-firestorm-arena-app.png";
-import IMG4 from "../../assets/3d-race-game-windows.png";
-import IMG5 from "../../assets/3d-race-game-windows.png";
-import IMG6 from "../../assets/houses-construction-app.jpg";
-import IMG7 from "../../assets/house-construction-app.jpg";
-import IMG8 from "../../assets/javascript-python-course.png";
-import IMG9 from "../../assets/linux-training-windows.png";
-import IMG10 from "../../assets/health-manager-app.jpg";
+const IMG1 = "/assets/horse-ironing-board-app.jpg";
+const IMG2 = "/assets/horse-ironing-board-app.jpg";
+const IMG3 = "/assets/crimson-sky-firestorm-arena-app.png";
+const IMG4 = "/assets/3d-race-game-windows.png";
+const IMG5 = "/assets/3d-race-game-windows.png";
+const IMG6 = "/assets/houses-construction-app.jpg";
+const IMG7 = "/assets/house-construction-app.jpg";
+const IMG8 = "/assets/javascript-python-course.png";
+const IMG9 = "/assets/linux-training-windows.png";
+const IMG10 = "/assets/health-manager-app.jpg";
 
 import Reveal from "../animations/Reveal";
 
@@ -1142,7 +1142,7 @@ const getLang = () => {
 
 const Portfolio = () => {
 
-  const [lang, setLang] = useState(getLang);
+  const [lang, setLang] = useState("en");
 
 
   useEffect(() => {
@@ -1152,6 +1152,7 @@ const Portfolio = () => {
     };
 
 
+    handler();
     window.addEventListener(
       "langchange",
       handler

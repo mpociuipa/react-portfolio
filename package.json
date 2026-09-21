@@ -1,36 +1,30 @@
 {
-  "homepage": "./",
   "name": "react-portfolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@opinly/backend": "^1.6.0",
+    "@opinly/next": "^1.6.0",
+    "@opinly/react": "^1.6.0",
+    "@opinly/shared": "^1.6.0",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.34.3",
-    "react": "^18.2.0",
+    "next": "16.3.5",
+    "react": "^19.2.0",
     "react-cookie-consent": "^10.0.1",
-    "react-dom": "^18.2.0",
+    "react-dom": "^19.2.0",
     "react-ga4": "^3.0.1",
-    "react-helmet-async": "^3.0.0",
     "react-icons": "^4.12.0",
-    "react-scripts": "5.0.1",
-    "swiper": "^11.0.5",
-    "vanilla-cookieconsent": "^3.1.0",
-    "web-vitals": "^2.1.4"
+    "server-only": "^0.0.1",
+    "svix": "^1.80.0",
+    "swiper": "^14.2.0",
+    "vanilla-cookieconsent": "^3.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
   },
   "browserslist": {
     "production": [
@@ -43,5 +37,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.9.0"
   }
 }
