@@ -13,7 +13,7 @@ import "swiper/css/pagination";
 import Reveal from "../animations/Reveal";
 
 const avatars = [AVTR1, AVTR2, AVTR3, AVTR4, AVTR5];
-const names   = ["Tina Snow","Shatta Wale","Kwame Despite","Nana Ama McBrown","Margaret McBrown"];
+const names   = ["Austėris Žvaigždūnas","Rytvydas Šilnaitis","Vėjūnė Gintarėlaitė","Ąžuorimas Rasvydis","Saulmirė Vėjūnaitė"];
 
 const TEST_T = {
   en: { sub: "What People Say", title: "Testimonials",
