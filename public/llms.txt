@@ -1,15 +1,25 @@
 # Mantas Počiuipa Portfolio
 
-Website:
-https://react-portfolio-steel-ten.vercel.app
+Personal portfolio of Mantas Počiuipa, Full Stack Developer working with web applications, AI applications, desktop software, Android applications, Three.js, game development, Linux, and databases.
 
-Author:
-Mantas Počiuipa
+## Website
 
-Role:
-Full Stack Developer
+- [Official Portfolio](https://react-portfolio-steel-ten.vercel.app/)
+- [Blog](https://react-portfolio-steel-ten.vercel.app/blog)
+- [Blog Authors](https://react-portfolio-steel-ten.vercel.app/blog/authors)
+- [Sitemap](https://react-portfolio-steel-ten.vercel.app/sitemap.xml)
 
-Specializations:
+## Portfolio Sections
+
+- [About](https://react-portfolio-steel-ten.vercel.app/#about)
+- [Experience](https://react-portfolio-steel-ten.vercel.app/#experience)
+- [Services](https://react-portfolio-steel-ten.vercel.app/#services)
+- [Portfolio Projects](https://react-portfolio-steel-ten.vercel.app/#portfolio)
+- [Testimonials](https://react-portfolio-steel-ten.vercel.app/#testimonials)
+- [Contact](https://react-portfolio-steel-ten.vercel.app/#contact)
+
+## Specializations
+
 - React
 - JavaScript
 - AI Applications
@@ -20,7 +30,8 @@ Specializations:
 - Linux
 - Databases
 
-Projects:
+## Projects
+
 - Crimson Sky Firestorm Arena
 - 3D Race Game
 - House Construction App
@@ -28,11 +39,7 @@ Projects:
 - JavaScript & Python Course
 - Linux Training
 
-Official portfolio:
-https://react-portfolio-steel-ten.vercel.app
+## Profiles
 
-GitHub:
-https://github.com/mpociuipa
-
-LinkedIn:
-https://www.linkedin.com/in/mantas-po%C4%8Diuipa-373620257/
+- [GitHub](https://github.com/mpociuipa)
+- [LinkedIn](https://www.linkedin.com/in/mantas-po%C4%8Diuipa-373620257/)
