@@ -71,7 +71,7 @@ const ALT_TEXT = [
   "JavaScript Python and Database learning platform",
   "Linux training course for Windows users",
   "Crimson Sky Firestorm Arena Android game",
-  "Health Manager desktop application for Windows"
+  "Health Manager desktop application for Windows",
 ];
 
 const IMAGE_TITLE = [
@@ -85,7 +85,7 @@ const IMAGE_TITLE = [
   "Programming Learning Platform",
   "Linux Training",
   "Crimson Sky Firestorm Arena Android",
-  "Health Manager"
+  "Health Manager",
 ];
 
 /* ==========================================================
@@ -93,9 +93,7 @@ const IMAGE_TITLE = [
 ========================================================== */
 
 const PORTFOLIO_T = {
-
   en: {
-
     sub: "My Recent Work",
 
     title: "Portfolio",
@@ -103,7 +101,6 @@ const PORTFOLIO_T = {
     btn: "Buy",
 
     titles: [
-
       "Cheerful Horse on Android",
 
       "Cheerful Horse on Windows",
@@ -125,11 +122,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena on Android",
 
       "Health Manager Desktop Application",
-
     ],
 
     descriptions: [
-
       "Cheerful Horse is an educational Android game developed by Full Stack Developer Mantas Počiuipa. The application demonstrates responsive mobile development, optimized graphics, intuitive gameplay and modern JavaScript programming techniques. It is designed for Android devices and showcases practical experience in software development, UI design and mobile application architecture.",
 
       "Cheerful Horse for Windows is a desktop version built for Microsoft Windows. The project demonstrates cross-platform software development, responsive user interface design, optimized performance and modern application architecture using current web technologies.",
@@ -151,11 +146,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android version brings an action game experience to mobile devices. The project demonstrates mobile optimization, responsive gameplay, interactive graphics and cross-platform game development.",
 
       "Health Manager is a Windows desktop application designed to help users organize and manage health-related information. The project demonstrates software architecture, user interface development and practical desktop application engineering.",
-
     ],
 
     categories: [
-
       "GameApplication",
 
       "SoftwareApplication",
@@ -177,11 +170,9 @@ const PORTFOLIO_T = {
       "MobileApplication",
 
       "HealthApplication",
-
     ],
 
     operatingSystems: [
-
       "Android",
 
       "Windows",
@@ -203,14 +194,10 @@ const PORTFOLIO_T = {
       "Android",
 
       "Windows",
-
     ],
-
   },
 
-
   lt: {
-
     sub: "Mano naujausi darbai",
 
     title: "Portfelis",
@@ -218,7 +205,6 @@ const PORTFOLIO_T = {
     btn: "Pirkti",
 
     titles: [
-
       "Linksmas arklys Android",
 
       "Linksmas arklys Windows",
@@ -240,11 +226,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android",
 
       "Sveikatos valdymo programa Windows",
-
     ],
 
     descriptions: [
-
       "Linksmas arklys yra edukacinis Android žaidimas sukurtas Manto Počiuipos. Projektas demonstruoja mobiliųjų aplikacijų kūrimą, prisitaikantį dizainą, optimizuotą grafiką ir šiuolaikines JavaScript programavimo technologijas.",
 
       "Linksmas arklys Windows versija yra darbalaukio programa sukurta Microsoft Windows sistemai. Projektas parodo programinės įrangos kūrimą, vartotojo sąsajos dizainą ir kelių platformų sprendimus.",
@@ -266,11 +250,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android versija pritaikyta mobiliesiems įrenginiams ir demonstruoja mobiliųjų žaidimų kūrimą bei optimizavimą.",
 
       "Sveikatos valdymo programa Windows sistemai padeda organizuoti sveikatos informaciją ir demonstruoja profesionalų darbalaukio programų kūrimą.",
-
     ],
 
     categories: [
-
       "Žaidimas",
 
       "Programinė įranga",
@@ -292,11 +274,9 @@ const PORTFOLIO_T = {
       "Android žaidimas",
 
       "Sveikatos programa",
-
     ],
 
     operatingSystems: [
-
       "Android",
 
       "Windows",
@@ -318,13 +298,10 @@ const PORTFOLIO_T = {
       "Android",
 
       "Windows",
-
     ],
-
   },
 
   de: {
-
     sub: "Meine neuesten Arbeiten",
 
     title: "Portfolio",
@@ -332,7 +309,6 @@ const PORTFOLIO_T = {
     btn: "Kaufen",
 
     titles: [
-
       "Fröhliches Pferd auf Android",
 
       "Fröhliches Pferd auf Windows",
@@ -354,11 +330,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android",
 
       "Health Manager Windows Anwendung",
-
     ],
 
     descriptions: [
-
       "Fröhliches Pferd ist ein pädagogisches Android-Spiel von Mantas Počiuipa. Das Projekt zeigt moderne mobile Entwicklung, responsive Benutzeroberflächen und optimierte Grafik für Android-Geräte.",
 
       "Fröhliches Pferd für Windows ist eine Desktop-Anwendung, die moderne Softwareentwicklung, Benutzerfreundlichkeit und plattformübergreifende Entwicklung demonstriert.",
@@ -380,11 +354,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android zeigt mobile Spieleentwicklung mit optimierter Performance und interaktiven Funktionen.",
 
       "Health Manager ist eine Windows-Anwendung zur Verwaltung von Gesundheitsinformationen und zeigt professionelle Softwareentwicklung.",
-
     ],
 
     categories: [
-
       "Game Application",
 
       "Software Application",
@@ -406,11 +378,9 @@ const PORTFOLIO_T = {
       "Mobile Game",
 
       "Health Application",
-
     ],
 
     operatingSystems: [
-
       "Android",
 
       "Windows",
@@ -432,14 +402,10 @@ const PORTFOLIO_T = {
       "Android",
 
       "Windows",
-
     ],
-
   },
 
-
   fr: {
-
     sub: "Mes travaux récents",
 
     title: "Portfolio",
@@ -447,7 +413,6 @@ const PORTFOLIO_T = {
     btn: "Acheter",
 
     titles: [
-
       "Cheval joyeux Android",
 
       "Cheval joyeux Windows",
@@ -469,11 +434,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android",
 
       "Health Manager Windows",
-
     ],
 
     descriptions: [
-
       "Cheval joyeux est un jeu éducatif Android développé par Mantas Počiuipa. Le projet démontre le développement mobile moderne, les interfaces responsives et l'optimisation graphique.",
 
       "Cheval joyeux Windows est une application de bureau démontrant la création de logiciels modernes et le développement multiplateforme.",
@@ -495,11 +458,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android démontre le développement de jeux mobiles multiplateformes.",
 
       "Health Manager est une application Windows conçue pour gérer les informations de santé.",
-
     ],
 
     categories: [
-
       "Application de jeu",
 
       "Application logicielle",
@@ -521,11 +482,9 @@ const PORTFOLIO_T = {
       "Jeu Android",
 
       "Application santé",
-
     ],
 
     operatingSystems: [
-
       "Android",
 
       "Windows",
@@ -547,12 +506,9 @@ const PORTFOLIO_T = {
       "Android",
 
       "Windows",
-
     ],
-
   },
-    it: {
-
+  it: {
     sub: "I miei lavori recenti",
 
     title: "Portfolio",
@@ -560,7 +516,6 @@ const PORTFOLIO_T = {
     btn: "Acquistare",
 
     titles: [
-
       "Cavallo allegro Android",
 
       "Cavallo allegro Windows",
@@ -582,11 +537,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android",
 
       "Health Manager Windows",
-
     ],
 
     descriptions: [
-
       "Cavallo allegro è un gioco educativo Android sviluppato da Mantas Počiuipa. Il progetto dimostra sviluppo mobile moderno, interfacce responsive e ottimizzazione grafica.",
 
       "Cavallo allegro Windows è un'applicazione desktop che mostra esperienza nello sviluppo software moderno e soluzioni multipiattaforma.",
@@ -608,11 +561,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android dimostra lo sviluppo di giochi mobili multipiattaforma.",
 
       "Health Manager è un'applicazione Windows per organizzare informazioni sanitarie e dimostra sviluppo software professionale.",
-
     ],
 
     categories: [
-
       "Applicazione gioco",
 
       "Applicazione software",
@@ -634,11 +585,9 @@ const PORTFOLIO_T = {
       "Gioco Android",
 
       "Applicazione salute",
-
     ],
 
     operatingSystems: [
-
       "Android",
 
       "Windows",
@@ -660,14 +609,10 @@ const PORTFOLIO_T = {
       "Android",
 
       "Windows",
-
     ],
-
   },
 
-
   es: {
-
     sub: "Mi trabajo reciente",
 
     title: "Portafolio",
@@ -675,7 +620,6 @@ const PORTFOLIO_T = {
     btn: "Comprar",
 
     titles: [
-
       "Caballo alegre Android",
 
       "Caballo alegre Windows",
@@ -697,11 +641,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android",
 
       "Health Manager Windows",
-
     ],
 
     descriptions: [
-
       "Caballo alegre es un juego educativo Android desarrollado por Mantas Počiuipa. Demuestra desarrollo móvil moderno, diseño responsive y optimización gráfica.",
 
       "Caballo alegre Windows es una aplicación de escritorio que muestra experiencia en desarrollo de software y aplicaciones multiplataforma.",
@@ -723,11 +665,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android demuestra desarrollo de juegos móviles multiplataforma.",
 
       "Health Manager es una aplicación Windows para administrar información relacionada con la salud.",
-
     ],
 
     categories: [
-
       "Aplicación de juego",
 
       "Software",
@@ -749,11 +689,9 @@ const PORTFOLIO_T = {
       "Juego Android",
 
       "Aplicación salud",
-
     ],
 
     operatingSystems: [
-
       "Android",
 
       "Windows",
@@ -775,12 +713,9 @@ const PORTFOLIO_T = {
       "Android",
 
       "Windows",
-
     ],
-
   },
-    uk: {
-
+  uk: {
     sub: "Мої останні роботи",
 
     title: "Портфоліо",
@@ -788,7 +723,6 @@ const PORTFOLIO_T = {
     btn: "Купити",
 
     titles: [
-
       "Веселий кінь Android",
 
       "Веселий кінь Windows",
@@ -810,11 +744,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android",
 
       "Health Manager Windows",
-
     ],
 
     descriptions: [
-
       "Веселий кінь — це навчальна Android гра, створена Mantas Počiuipa. Проєкт демонструє сучасну мобільну розробку, адаптивний дизайн та оптимізацію графіки.",
 
       "Веселий кінь для Windows — це настільний додаток, який демонструє розробку програмного забезпечення та кросплатформні рішення.",
@@ -836,11 +768,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android демонструє створення мобільних ігор із оптимізацією продуктивності.",
 
       "Health Manager — це Windows програма для управління інформацією про здоров'я.",
-
     ],
 
     categories: [
-
       "Ігровий додаток",
 
       "Програмне забезпечення",
@@ -862,11 +792,9 @@ const PORTFOLIO_T = {
       "Android гра",
 
       "Health додаток",
-
     ],
 
     operatingSystems: [
-
       "Android",
 
       "Windows",
@@ -888,14 +816,10 @@ const PORTFOLIO_T = {
       "Android",
 
       "Windows",
-
     ],
-
   },
 
-
   zh: {
-
     sub: "我的近期作品",
 
     title: "作品集",
@@ -903,7 +827,6 @@ const PORTFOLIO_T = {
     btn: "购买",
 
     titles: [
-
       "快乐的马 Android",
 
       "快乐的马 Windows",
@@ -925,11 +848,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android",
 
       "Health Manager Windows",
-
     ],
 
     descriptions: [
-
       "快乐的马是一款由 Mantas Počiuipa 开发的 Android 教育游戏，展示现代移动开发和优化图形技术。",
 
       "快乐的马 Windows版本是一款桌面应用，展示软件开发和跨平台技术。",
@@ -951,11 +872,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android展示移动游戏开发能力。",
 
       "Health Manager是一款Windows健康管理应用。",
-
     ],
 
     categories: [
-
       "游戏应用",
 
       "软件应用",
@@ -977,11 +896,9 @@ const PORTFOLIO_T = {
       "Android游戏",
 
       "健康应用",
-
     ],
 
     operatingSystems: [
-
       "Android",
 
       "Windows",
@@ -1003,14 +920,10 @@ const PORTFOLIO_T = {
       "Android",
 
       "Windows",
-
     ],
-
   },
 
-
   ru: {
-
     sub: "Мои последние работы",
 
     title: "Портфолио",
@@ -1018,7 +931,6 @@ const PORTFOLIO_T = {
     btn: "Купить",
 
     titles: [
-
       "Весёлый конь Android",
 
       "Весёлый конь Windows",
@@ -1040,9 +952,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android",
 
       "Health Manager Windows",
-
     ],
-    descriptions: ["Весёлый конь — это Android образовательная игра, разработанная Mantas Počiuipa. Проект демонстрирует мобильную разработку, адаптивный дизайн и оптимизацию графики.",
+    descriptions: [
+      "Весёлый конь — это Android образовательная игра, разработанная Mantas Počiuipa. Проект демонстрирует мобильную разработку, адаптивный дизайн и оптимизацию графики.",
 
       "Весёлый конь Windows — это настольное приложение, показывающее разработку программного обеспечения и кроссплатформенные технологии.",
 
@@ -1063,11 +975,9 @@ const PORTFOLIO_T = {
       "Crimson Sky Firestorm Arena Android показывает разработку мобильных игр и оптимизацию производительности.",
 
       "Health Manager — это Windows приложение для управления информацией о здоровье.",
-
     ],
 
     categories: [
-
       "Игровое приложение",
 
       "Программное обеспечение",
@@ -1089,11 +999,9 @@ const PORTFOLIO_T = {
       "Android игра",
 
       "Health приложение",
-
     ],
 
     operatingSystems: [
-
       "Android",
 
       "Windows",
@@ -1115,13 +1023,9 @@ const PORTFOLIO_T = {
       "Android",
 
       "Windows",
-
     ],
-
   },
-
 };
-
 
 // ==========================================================
 // LANGUAGE STORAGE
@@ -1135,128 +1039,58 @@ const getLang = () => {
   }
 };
 
-
 // ==========================================================
 // PORTFOLIO COMPONENT
 // ==========================================================
 
 const Portfolio = () => {
-
   const [lang, setLang] = useState("en");
 
-
   useEffect(() => {
-
     const handler = () => {
       setLang(getLang());
     };
 
-
     handler();
-    window.addEventListener(
-      "langchange",
-      handler
-    );
-
+    window.addEventListener("langchange", handler);
 
     return () => {
-
-      window.removeEventListener(
-        "langchange",
-        handler
-      );
-
+      window.removeEventListener("langchange", handler);
     };
-
   }, []);
 
-
-  const t =
-    PORTFOLIO_T[lang] ||
-    PORTFOLIO_T.en;
-
-
+  const t = PORTFOLIO_T[lang] || PORTFOLIO_T.en;
 
   return (
-
-    <section
-      id="portfolio"
-      aria-label="Portfolio projects"
-    >
-
-
+    <section id="portfolio" aria-label="Portfolio projects">
       <div className="section__header">
-
         <Reveal y={10}>
-
-          <h5>
-            {t.sub}
-          </h5>
-
+          <p className="section__eyebrow">{t.sub}</p>
         </Reveal>
 
-
-        <Reveal
-          y={12}
-          delay={0.06}
-        >
-
-          <h2>
-            {t.title}
-          </h2>
-
+        <Reveal y={12} delay={0.06}>
+          <h2>{t.title}</h2>
         </Reveal>
-
-
       </div>
 
-
-
-
       <div className="container portfolio__container">
-
-
         {t.titles.map((title, i) => (
-
-
-          <Reveal
-            key={i}
-            y={14}
-            delay={i * 0.06}
-          >
-
-
+          <Reveal key={i} y={14} delay={i * 0.06}>
             <article
               className="portfolio__item"
               itemScope
               itemType="https://schema.org/SoftwareApplication"
             >
+              <meta itemProp="name" content={title} />
 
-
-
-              <meta
-                itemProp="name"
-                content={title}
-              />
-
-
-              <meta
-                itemProp="applicationCategory"
-                content={t.categories[i]}
-              />
-
+              <meta itemProp="applicationCategory" content={t.categories[i]} />
 
               <meta
                 itemProp="operatingSystem"
                 content={t.operatingSystems[i]}
               />
 
-
-
-              <div
-                className="portfolio__item-image"
-              >
-
+              <div className="portfolio__item-image">
                 <img
                   src={images[i]}
                   alt={ALT_TEXT[i]}
@@ -1264,34 +1098,15 @@ const Portfolio = () => {
                   loading="lazy"
                   itemProp="image"
                 />
-
               </div>
 
+              <h3>{title}</h3>
 
-
-
-              <h3>
-                {title}
-              </h3>
-
-
-
-              <p
-                className="portfolio__description"
-                itemProp="description"
-              >
-
+              <p className="portfolio__description" itemProp="description">
                 {t.descriptions[i]}
-
               </p>
 
-
-
-
-              <div
-                className="portfolio__item-cta"
-              >
-
+              <div className="portfolio__item-cta">
                 <a
                   href={github[i]}
                   className="btn"
@@ -1299,12 +1114,8 @@ const Portfolio = () => {
                   rel="noreferrer"
                   aria-label={`${title} GitHub repository`}
                 >
-
                   GitHub
-
                 </a>
-
-
 
                 <a
                   href={demos[i]}
@@ -1313,32 +1124,15 @@ const Portfolio = () => {
                   rel="noreferrer"
                   aria-label={`${title} purchase page`}
                 >
-
                   {t.btn}
-
                 </a>
-
-
               </div>
-
-
             </article>
-
-
           </Reveal>
-
-
         ))}
-
-
       </div>
-
-
     </section>
-
   );
-
 };
-
 
 export default Portfolio;

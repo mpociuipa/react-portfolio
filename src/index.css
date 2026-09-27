@@ -93,8 +93,11 @@ section {
   margin-bottom: 3rem;
 }
 
-.section__header h5 {
+.section__eyebrow {
   color: var(--color-light);
+  font-size: 0.83rem;
+  font-weight: 500;
+  margin: 0;
 }
 
 .section__header h2 {
