@@ -1,115 +1,112 @@
-# Mantas Počiuipa — Next.js + Opinly
+# Portfolio ir savarankiškas tinklaraštis
 
-Portfolio perkeltas iš Create React App į Next.js App Router. Išsaugoti originalūs komponentai, stiliai, nuotraukos, vaizdo įrašas, CV, animacijos, kalbos, temos, reakcijos, EmailJS kontaktų forma ir Brevo naujienlaiškis. Pridėtas serverio pusėje atvaizduojamas tinklaraštis.
+Projektas naudoja Next.js. Tinklaraštis skaito Markdown failus iš `content/blog`, todėl jam nereikia išorinės turinio platformos, API rakto ar duomenų bazės.
+
+## Kas pakeista
+
+- Pašalinti visi keturi `@opinly/*` paketai, `svix`, turinio klientas, CDN perrašymas, sekimo pixel ir atnaujinimo webhook.
+- Keturi esami vieši straipsniai perrašyti: du anglų, vienas prancūzų ir vienas vokiečių kalba. Temos ir visi keturi senieji URL išsaugoti; tekstai nėra senų tekstų kopijos.
+- Paliktos originalios pirmojo publikavimo datos, atnaujinimo data: 2026-09-27.
+- Nauji straipsniai, kategorijos, žymos, autoriai ir sitemap formuojami iš vietinių failų. Sąraše yra po 6 straipsnius; esant daugiau, atsiranda puslapiavimas.
+- Pagrindinio portfolio komponentai, kontaktų ir naujienlaiškio formos išsaugoti.
+- Google Analytics liko ir įjungiamas tik davus analitikos sutikimą. `generate_lead` įvykis perduoda formos šaltinį, bet ne el. pašto adresą.
+
+Tai dar nėra naujas gyvos Vercel svetainės deployment. Pakeitimus reikia įkelti ir publikuoti.
 
 ## Paleidimas Windows / PowerShell
 
+Išarchyvuok ZIP į naują aplanką. VS Code atidaryk aplanką su `package.json`.
 Naudok Node.js 22 arba naujesnę palaikomą versiją.
-Išarchyvuok projektą į naują aplanką ir atidaryk jį VS Code.
-Terminalas turi būti aplanke, kuriame yra package.json.
 
 ```powershell
 npm ci
 Copy-Item .env.example .env.local
-```
-
-Atidaryk `.env.local` ir pats įrašyk reikšmes:
-
-```dotenv
-OPINLY_API_KEY=
-OPINLY_WEBHOOK_SIGNING_SECRET=
-BREVO_API_KEY=
-BREVO_LIST_ID=
-```
-
-- `OPINLY_API_KEY`: slaptas raktas iš Opinly → Settings → Developers.
-- `OPINLY_WEBHOOK_SIGNING_SECRET`: atskiro webhook parašo paslaptis (ne API raktas).
-- `BREVO_API_KEY` ir `BREVO_LIST_ID`: ankstesnio projekto naujienlaiškio nustatymai.
-- Raktų nekelk į GitHub ir nedėk į NEXT_PUBLIC kintamuosius.
-
-```powershell
 npm run dev
 ```
 
 Atidaryk http://localhost:3000 ir http://localhost:3000/blog.
-Be Opinly rakto pagrindinis puslapis veikia, o tinklaraštis rodo laikiną pranešimą.
-Su raktu jis rodo tik paskelbtus Opinly straipsnius. Jei straipsnių dar nėra, rodomas tuščias sąrašas.
 
-Produkcijos patikra:
+Tinklaraštis veikia ir be `.env.local`. Jame reikia tik ankstesnių `BREVO_API_KEY` ir `BREVO_LIST_ID`, jeigu naudoji Brevo naujienlaiškį. Raktų nedėk į GitHub.
+
+## Kaip pridėti straipsnį
+
+1. Nukopijuok `content/blog/_template.md` į naują failą, pvz., `content/blog/mano-pirmas-straipsnis.md`.
+2. Pakeisk `title`, `slug`, `description`, datas ir teksto turinį. `slug` turi būti unikalus: mažos lotyniškos raidės, skaičiai ir brūkšneliai.
+3. Parink `language`: `lt`, `en`, `de` arba `fr`. Tai teksto kalba; straipsnis automatiškai neverčiamas.
+4. `category` yra rodomas kategorijos pavadinimas. `categorySlug` yra jos URL dalis. `tags` — URL tinkami žodžiai, pvz., `["nextjs", "hosting"]`.
+5. Kai tekstas paruoštas viešai rodyti, pakeisk `published: false` į `published: true`.
+6. Išsaugok ir patikrink `/blog` bei `/blog/tavo-slug` vietiniame projekte.
+7. Paleisk `npm run build`, įkelk pakeitimus į prijungtą GitHub saugyklą ir patikrink naują Vercel deployment.
+
+`published: false` tekstai nėra rodomi svetainėje, autorių sąrašuose ar sitemap. Jie tebėra failai saugykloje: viešoje GitHub saugykloje juos galima perskaityti. Tai nėra slapto turinio saugykla. Ateities data neįjungia automatinio planuoto publikavimo: publikavimą valdo `published` ir deployment.
+
+Šablonas turi visus privalomus laukus. Datas rašyk kabutėse: `"2026-09-27"`. `updated` negali būti ankstesnė už `date`.
+
+## Kaip pridėti nuotrauką
+
+Nukopijuok failą į `public/blog-images`, pavyzdžiui, `mano-nuotrauka.jpg`.
+Straipsnio pradžioje gali pridėti:
+
+```yaml
+cover: "/blog-images/mano-nuotrauka.jpg"
+coverAlt: "Tikslus nuotraukos aprašymas"
+```
+
+Tekste nuotrauka įterpiama taip:
+
+```markdown
+![Nuotraukos aprašymas](/blog-images/mano-nuotrauka.jpg)
+```
+
+Naudok savo arba teisėtai naudoti leidžiamas nuotraukas. Naujieji keturi straipsniai neturi priklausomybės nuo seno CDN ir nereikalauja viršelio nuotraukų.
+
+## Markdown pagrindai
+
+- `## Skyriaus pavadinimas` — antraštė.
+- `**Svarbus tekstas**` — paryškinimas.
+- `[Nuorodos tekstas](https://example.com)` — nuoroda.
+- Eilutę pradėk `- `, jei nori sąrašo.
+- Tarp pastraipų palik tuščią eilutę.
+
+Nerašyk papildomos pirmojo lygio `#` antraštės pradžioje: pagrindinis pavadinimas rodomas iš `title`.
+Neapdorotas HTML ir vykdomas MDX/JavaScript nepalaikomi; tekstas renderinamas su `react-markdown` ir `remark-gfm`.
+
+## Kaip atnaujinti esamą straipsnį
+
+Redaguok atitinkamą `.md` failą, pakeisk `updated` į tikrą redagavimo datą ir publikuok pakeitimus. `date` palik kaip pirmojo publikavimo datą.
+
+Jei straipsnio adresas jau naudojamas, nekeisk `slug` be peradresavimo plano. Failo pavadinimas neprivalo sutapti su slug; esamų keturių straipsnių ilgi slug išsaugoti tam, kad senos nuorodos nenustotų veikti.
+
+## Saugus seno prijungimo pašalinimas
+
+1. Išsaugok savo dabartinio projekto atsarginę kopiją.
+2. Pakeisk saugyklos turinį šio ZIP turiniu. Jei kopijuoji ant seno projekto, būtina pašalinti senus failus `src/lib/opinly.ts` ir visą `src/app/api/opinly` aplanką. Vien failų kopijavimas jų automatiškai neištrina.
+3. Pakeisk ir `package.json`, ir `package-lock.json`. Paleisk `npm ci` bei `npm run build`.
+4. Vercel palik Framework Preset **Next.js**, Build Command `npm run build`, Output Directory — numatytąjį. Šis projektas turi serverio prenumeratos API, todėl jo nekonvertuok į `output: export`.
+5. Publikuok ir patikrink pagrindinį puslapį, `/blog`, visas keturias senas straipsnių nuorodas ir `/sitemap.xml`.
+6. Kai nauja versija veikia, Vercel ir savo `.env.local` pašalink `OPINLY_API_KEY`, `OPINLY_WEBHOOK_SIGNING_SECRET` bei savo ranka pridėtus kitus `OPINLY_*` kintamuosius. `BREVO_*` palik.
+7. Senoje turinio paslaugoje išjunk webhook į `/api/opinly` ir atšauk jos API raktą. Jei paslaugos nebenori, atskirai patikrink ir atšauk mokamą prenumeratą. Kodo pakeitimas prenumeratos nenutraukia.
+8. Dar kartą publikuok, kad naują aplinką naudotų visi naujos versijos serverio procesai.
+
+Sena webhook užklausa šiame projekte gaus 404, nes atitinkamos API nebėra.
+
+## Redakciniai pakeitimai
+
+- Pašalinti nepagrįsti rinkos dydžiai, lankytojų skaičiaus ribos ir universalūs kainų pažadai.
+- Pašalintas teiginys, kad Next.js iš esmės netinka VPS.
+- Atskirti 3D resursų atsisiuntimas, renderinimas lankytojo įrenginyje ir žaidimo serverio darbas.
+- Nebeteigiama, kad SSR savaime garantuoja geresnį greitį ar SEO.
+- Automatinis publikavimas nebepristatomas kaip neklystantis procesas; paaiškintos patikros ir atkūrimo ribos.
+- Paliktos nuorodos į oficialius techninius šaltinius. Tekstuose nėra išgalvotų asmeninių bandymų ar tariamų klientų rezultatų.
+
+## Patikra
 
 ```powershell
 npm run build
+npm run typecheck
 npm start
 ```
 
-`npm start` dabar paleidžia jau sukompiliuotą Next.js serverį. Kasdieniam darbui naudok `npm run dev`.
+`npm run build` patikrina ir straipsnių laukus. Klaidoje bus nurodytas failas: taisyk jį, kol build sėkmingas. Tai apsaugo nuo netyčia sugadintų datų, pasikartojančių adresų ar neegzistuojančių viršelių.
 
-## Atnaujinimas Vercel
-
-1. Išsaugok seno projekto atsarginę kopiją.
-2. Į GitHub projektą perkelk šio ZIP turinį. Jei kopijuoji ant seno aplanko, pašalink senus `vercel.json`, `public/index.html`, `public/sitemap.xml`, `src/index.js` ir `api/subscribe.js`. Nauja prenumeratos API yra `src/pages/api/subscribe.js`.
-3. Nekelk `node_modules`, `.next`, `.env.local` ar senos `.git` kopijos. ZIP jų nėra.
-4. Vercel projekto Build and Deployment nustatymuose pasirink **Next.js** Framework Preset. Root Directory turi rodyti aplanką su package.json. Pašalink ankstesnį `build` Output Directory nustatymą — naudok Next.js numatytąjį. Build Command: `npm run build`; Install Command: `npm ci`.
-5. Vercel → Settings → Environment Variables įrašyk tuos pačius keturis kintamuosius atitinkamai Production aplinkai (ir Preview, jei jos reikia).
-6. Atlik naują deployment / Redeploy. Vien env reikšmių išsaugojimo neužtenka.
-7. Patikrink svetainę, `/blog`, straipsnio adresą ir `/sitemap.xml`.
-
-Šiame darbe svetainė į Vercel nebuvo publikuota. ZIP yra paruoštas projektas.
-
-## Opinly nustatymai
-
-- Site URL: `https://react-portfolio-steel-ten.vercel.app`
-- Blog path: `blog` Opinly formoje; `/blog` Next.js konfigūracijoje.
-- Company name: `Mantas Počiuipa`
-- CDN namespace: `d04nSBCOnQTIEz6SSZ1Eu`
-- Vietinis straipsnių nuotraukų kelias: `/opinly-images` (atskirtas nuo portfolio `/assets`).
-
-Opinly → Settings → Developers → Webhooks pridėk:
-
-```
-https://react-portfolio-steel-ten.vercel.app/api/opinly
-```
-
-Pasirink `content.routes-changed` įvykį, nukopijuok jo signing secret į Vercel `OPINLY_WEBHOOK_SIGNING_SECRET` ir atlik Redeploy.
-Handleris patikrina Svix parašą, atmeta nepasirašytas užklausas, išvalo `opinly` duomenų talpyklą su `revalidateTag('opinly', { expire: 0 })` ir atnaujina pasikeitusius puslapius, archyvus bei sitemap. GET užklausos pažymėtos `opinly`; įvykių POST užklausos netalpinamos talpykloje.
-
-## Analitika ir konversijos
-
-Šakniniame layout naudojamas `Analytics` komponentas su `next/script`. Jis įkelia pateiktą Opinly pixel ir ankstesnį Google Analytics tik leidus analitinius slapukus esamame slapukų lange. Testuojant pirmiausia pasirink Accept All arba Customize → Analytics.
-
-Po sėkmingo kontakto formos siuntimo arba naujienlaiškio prenumeratos vykdomas `identify({ email })` ir `generate_lead`. Nesiunčiamas žinutės tekstas. Jei pixel dar neužsikrovė, laukiamas `opinly:ready` įvykis.
-
-Šiame portfolio nėra paskyrų, krepšelio, mokėjimų ar patvirtintų užsakymų srauto, todėl `login`, `sign_up` ir pirkimo įvykiai dirbtinai nekuriami.
-
-`src/lib/opinly.ts` eksportuoja `recordConfirmedPurchase`. Kai turėsi mokėjimų sistemą, iškviesk ją tik patikrinęs mokėjimo tiekėjo webhook parašą ir sėkmingą mokėjimą:
-
-```ts
-await recordConfirmedPurchase({
-  orderId: confirmedOrder.id,
-  value: confirmedOrder.amountInMajorUnits,
-  currency: confirmedOrder.currency,
-  email: confirmedOrder.customerEmail,
-  anonId: confirmedOrder.opinlyAnonId,
-});
-```
-
-Čia `confirmedOrder` yra būsimos mokėjimų sistemos patikrinti duomenys, ne esamas projekto objektas. Suma turi būti pagrindiniais valiutos vienetais (pvz., 19.99 EUR), ne centais. Order ID deduplikuoja pakartotinius įvykius. Anoniminį pixel ID gali išsaugoti užsakymo metaduomenyse pradedant apmokėjimą, laikantis lankytojo analitikos pasirinkimo. Pirkimų funkcija paruošta, bet neprijungta prie neegzistuojančios mokėjimų sistemos.
-
-## Failai
-
-- `next.config.ts`: svetainės ir Opinly konfigūracija.
-- `src/app/layout.tsx`: bendri metaduomenys, stiliai ir analitika.
-- `src/app/page.tsx`, `src/App.jsx`: išsaugotas portfolio.
-- `src/app/blog/[[...slug]]/page.tsx`: sąrašas, straipsniai, kategorijos, autoriai, žymos ir puslapiavimas.
-- `src/app/sitemap.ts`: pagrindinis puslapis ir dinaminiai Opinly adresai.
-- `src/app/api/opinly/route.ts`: pasirašytas atnaujinimo webhook.
-- `src/pages/api/subscribe.js`: išsaugota Brevo API; jos atmintinis ribotuvas nėra globalus tarp Vercel instancijų.
-- `src/lib/opinly.ts`: tik serverio klientas ir pirkimo funkcija.
-
-Dokumentacija: https://opinly.ai/llms-full.txt
-
-## Patikros
-
-Produkcijos kompiliavimas ir TypeScript patikra. Serverio maršrutai, metaduomenys, JSON-LD, sitemap, puslapiavimas ir webhook talpyklos išvalymas tikrinami su lokaliais bandomaisiais duomenimis. Naršyklėje tikrinamas mobilus išdėstymas, išsaugota kalba, temos ir analitikos sutikimas.
-
-Tikras Opinly API raktas nebuvo pateiktas, todėl tikras turinio gavimas, CDN nuotraukos, įvykių priėmimas Opinly, EmailJS siuntimas, Brevo prenumeravimas ir Vercel publikavimas nėra patvirtinti šiuo testu.
+Pagrindiniai failai: `src/lib/blog.ts`, `src/app/blog/[[...slug]]/page.tsx`, `src/app/sitemap.ts`, `content/blog/*.md`.

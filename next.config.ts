@@ -1,6 +1,5 @@
-import { withOpinlyConfig } from '@opinly/next';
-export default withOpinlyConfig({
-  blogPath: '/blog', imagesPath: '/opinly-images', companyName: 'Mantas Počiuipa',
-  cdnNamespace: 'd04nSBCOnQTIEz6SSZ1Eu',
-  siteUrl: 'https://react-portfolio-steel-ten.vercel.app',
-})({});
+import type { NextConfig } from 'next';
+const config: NextConfig = {
+  outputFileTracingIncludes: { '/*': ['./content/blog/**/*.md'] },
+};
+export default config;

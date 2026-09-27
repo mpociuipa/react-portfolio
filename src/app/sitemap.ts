@@ -1,10 +1,10 @@
 import type { MetadataRoute } from 'next';
-import { buildSitemapEntries } from '@opinly/shared';
-import { opinlyConfig } from '@opinly/next';
-import { getOpinly } from '../lib/opinly';
-export const dynamic = 'force-dynamic';
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
- const home = { url: 'https://react-portfolio-steel-ten.vercel.app' };
- if (!process.env.OPINLY_API_KEY) return [home];
- return [home, ...buildSitemapEntries(await getOpinly().routes(), opinlyConfig).map(e => ({url: e.url, lastModified: new Date(e.lastModified)}))];
+import { SITE_URL, getPosts, blogPaths } from '../lib/blog';
+export default function sitemap(): MetadataRoute.Sitemap {
+ const all=getPosts();
+ return [{url:SITE_URL},...blogPaths().map(parts=>{
+  const post=parts.length===1?all.find(p=>p.slug===parts[0]):undefined;
+  const updated=post?.updated ?? all.map(p=>p.updated).sort().at(-1);
+  return {url:SITE_URL+'/blog'+(parts.length?'/'+parts.join('/') : ''),...(updated?{lastModified:updated}: {})};
+ })];
 }

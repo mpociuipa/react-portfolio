@@ -4,8 +4,8 @@ export function hasAnalyticsConsent() {
  return consent?.type === 'all' || (consent?.type === 'custom' && JSON.parse(localStorage.getItem('cookiePreferences') || '{}').analytics === true);
  } catch { return false; }
 }
-export function trackLead(email, source) {
- if (!hasAnalyticsConsent()) return;
- const send = () => { if (!hasAnalyticsConsent()) return; window.opinly?.identify({ email }); window.opinly?.track('generate_lead', { source }); };
- if (window.opinly) send(); else window.addEventListener('opinly:ready', send, { once: true });
+// Keep the existing form analytics without sending email addresses to Google Analytics.
+export function trackLead(_email, source) {
+ if (!hasAnalyticsConsent() || typeof window.gtag !== 'function') return;
+ window.gtag('event', 'generate_lead', { lead_source: source });
 }

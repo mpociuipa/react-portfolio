@@ -1,72 +1,44 @@
-import type { ResolvingMetadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { OpinlyContent } from '@opinly/react';
-import { generateOpinlyMetadata, opinlyConfig, OpinlyJsonLd, buildBlogPostingJsonLd, buildFaqJsonLd } from '@opinly/next';
-import type { SeoResolved, OpinlyNode } from '@opinly/shared';
-import { getOpinly } from '../../../lib/opinly';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { getPosts, resolveBlogRoute, blogPaths, jsonLd, SITE_URL, SITE_NAME, PAGE_SIZE, LANGUAGES } from '../../../lib/blog';
 import '../blog.css';
-export const revalidate = 3600;
-type Props = { params: Promise<{ slug?: string[] }>; searchParams: Promise<{ cursor?: string }> };
-async function loadRoute(slug: string[], cursor?: string) {
- const client = getOpinly();
- if (!slug.length) {
-  const [list, categories] = await Promise.all([client.posts({ limit: 12, cursor }), client.categories()]);
-  return { seo: { type: 'home' } as SeoResolved, title: 'Blog', list, categories };
- }
- if (slug.length === 2 && slug[0] === 'category') {
-  const [categories, list] = await Promise.all([client.categories(), client.posts({ category: slug[1], limit: 12, cursor })]);
-  const category = categories.find(c => c.slug === slug[1]);
-  if (!category) notFound();
-  return { seo: { type: 'category', data: { ...category, name: category.title, posts: list.data } } as SeoResolved, title: category.title, list };
- }
- if (slug.length === 2 && slug[0] === 'tag') {
-  const [tags, list] = await Promise.all([client.tags(), client.posts({ tag: slug[1], limit: 12, cursor })]);
-  const tag = tags.find(t => t.slug === slug[1]);
-  if (!tag) notFound();
-  return { seo: { type: 'tag', data: tag } as SeoResolved, title: tag.name, list };
- }
- if (slug[0] === 'authors') {
-  if (slug.length === 1) return { seo: { type: 'authors' } as SeoResolved, title: 'Authors', authors: (await client.authors()).data };
-  if (slug.length !== 2) notFound();
-  const author = await client.author(slug[1]);
-  if (author.type !== 'author') notFound();
-  const list = await client.posts({ author: slug[1], limit: 12, cursor });
-  return { seo: author as SeoResolved, title: author.data.name, list };
- }
- if (slug.length !== 1) notFound();
- const post = await client.post(slug[0]);
- if (!post) notFound();
- return { seo: { type: 'post', data: post } as SeoResolved, title: post.title, post };
+type Props = { params: Promise<{ slug?: string[] }> };
+export function generateStaticParams() { return blogPaths().map(slug=>({slug})); }
+export const dynamicParams = false;
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+ const route=resolveBlogRoute((await params).slug ?? []); if(!route)return {title:'Page not found',robots:{index:false,follow:false}};
+ const title=route.title+(route.page>1?` — Page ${route.page}`:''); const url=SITE_URL+route.path; const post=route.post;
+ const image=post?.cover ? {url:SITE_URL+post.cover,alt:post.coverAlt} : {url:SITE_URL+'/preview.png',alt:SITE_NAME};
+ return {title:`${title} | ${SITE_NAME}`,description:route.description,alternates:{canonical:url},
+  openGraph:{title,description:route.description,url,type:post?'article':'website',images:[image],...(post?{publishedTime:post.date+'T00:00:00Z',modifiedTime:post.updated+'T00:00:00Z',authors:[post.author]}:{})},
+  twitter:{card:'summary_large_image',title,description:route.description,images:[image.url]}};
 }
-export async function generateMetadata(props: Props, parent: ResolvingMetadata) {
- if (!process.env.OPINLY_API_KEY) return { title: 'Blog | Mantas Počiuipa', robots: { index: false } };
- const { slug = [] } = await props.params;
- return generateOpinlyMetadata((await loadRoute(slug)).seo, parent);
-}
-export default async function BlogPage(props: Props) {
- const { slug = [] } = await props.params;
- const { cursor } = await props.searchParams;
- if (!process.env.OPINLY_API_KEY) return <main className="blog-shell"><Link href="/">← Portfolio</Link><h1>Blog</h1><p>The blog is being prepared. Please check back soon.</p></main>;
- const route = await loadRoute(slug, cursor);
- const post = 'post' in route ? route.post : undefined;
- return <main className="blog-shell">
-  <nav className="blog-nav"><Link href="/">← Portfolio</Link><Link href="/blog">Blog</Link><Link href="/blog/authors">Authors</Link></nav>
-  <h1>{route.title}</h1>
-  {post ? <article>
-   <p className="blog-muted">{new Date(post.firstPublishedAt).toLocaleDateString('en-GB')}{post.author && <> · <Link href={'/blog/authors/' + encodeURIComponent(post.author.slug)}>{post.author.name}</Link></>}</p>
-   {post.titleFile?.fileKey && <img className="blog-cover" src={opinlyConfig.imagesPrefix + '/' + post.titleFile.fileKey} alt={post.titleFile.altText || post.title} />}
-   <OpinlyJsonLd data={buildBlogPostingJsonLd(post)} />
-   <div className="blog-body"><OpinlyContent content={post.content as OpinlyNode} config={opinlyConfig} /></div>
-   {!!post.faqs?.length && <section className="blog-faq"><h2>Frequently asked questions</h2><OpinlyJsonLd data={buildFaqJsonLd(post.faqs)} />{post.faqs.map((faq, i) => <details key={i}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>}
-  </article> : <>
-   {'categories' in route && route.categories && <div className="blog-categories">{route.categories.map(c => <Link className="btn" key={c.slug} href={'/blog/category/' + encodeURIComponent(c.slug)}>{c.title}</Link>)}</div>}
-   {'authors' in route && route.authors && <div className="blog-grid">{route.authors.map(a => <Link className="blog-card" key={a.slug} href={'/blog/authors/' + encodeURIComponent(a.slug)}><h2>{a.name}</h2></Link>)}</div>}
-   {'list' in route && route.list && <>
-    <div className="blog-grid">{route.list.data.map(p => <Link className="blog-card" key={p.slug} href={'/blog/' + encodeURIComponent(p.slug)}><h2>{p.title}</h2><p>{p.description}</p><span>Read article →</span></Link>)}</div>
-    {!route.list.data.length && <p>No published posts yet.</p>}
-    {route.list.has_more && route.list.next_cursor && <Link className="btn" href={'/blog' + (slug.length ? '/' + slug.map(encodeURIComponent).join('/') : '') + '?cursor=' + encodeURIComponent(route.list.next_cursor)}>Next page →</Link>}
-   </>}
-  </>}
+export default async function BlogPage({params}: Props) {
+ const route=resolveBlogRoute((await params).slug ?? []); if(!route)notFound(); const post=route.post;
+ const posts=route.posts.slice((route.page-1)*PAGE_SIZE,route.page*PAGE_SIZE);
+ const authors=[...new Map(getPosts().map(p=>[p.authorSlug,p])).values()];
+ const categories=[...new Map(getPosts().map(p=>[p.categorySlug,p.category])).entries()];
+ const date=(d:string,lang='en')=>new Intl.DateTimeFormat(lang,{dateStyle:'long',timeZone:'UTC'}).format(new Date(d));
+ return <main className="blog-shell" lang={post?.language ?? 'en'}>
+ <nav className="blog-nav" aria-label="Blog navigation"><Link href="/">← Portfolio</Link><Link href="/blog">Blog</Link><Link href="/blog/authors">Authors</Link></nav>
+ <h1>{route.title}</h1>
+ {post ? <article>
+  <p className="blog-muted"><Link href={'/blog/authors/'+post.authorSlug}>{post.author}</Link> · <time dateTime={post.date}>{date(post.date,post.language)}</time> · {post.minutes} min · {LANGUAGES[post.language]}</p>
+  {post.updated!==post.date && <p className="blog-muted">{({en:'Updated',lt:'Atnaujinta',de:'Aktualisiert',fr:'Mis à jour'} as Record<string,string>)[post.language]}: <time dateTime={post.updated}>{date(post.updated,post.language)}</time></p>}
+  <p className="blog-intro">{post.description}</p>
+  {post.cover && <img className="blog-cover" src={post.cover} alt={post.coverAlt} />}
+  <script type="application/ld+json" dangerouslySetInnerHTML={{__html:jsonLd({'@context':'https://schema.org','@type':'BlogPosting',headline:post.title,description:post.description,url:SITE_URL+route.path,mainEntityOfPage:SITE_URL+route.path,datePublished:post.date+'T00:00:00Z',dateModified:post.updated+'T00:00:00Z',inLanguage:post.language,author:{'@type':'Person',name:post.author,url:SITE_URL+'/blog/authors/'+post.authorSlug},...(post.cover?{image:SITE_URL+post.cover}:{}),articleSection:post.category,keywords:post.tags.join(', ')})}} />
+  <div className="blog-body"><Markdown remarkPlugins={[remarkGfm]} skipHtml>{post.content}</Markdown></div>
+  <div className="blog-categories"><Link className="btn" href={'/blog/category/'+post.categorySlug}>{post.category}</Link>{post.tags.map(tag=><Link key={tag} className="btn" href={'/blog/tag/'+tag}>#{tag}</Link>)}</div>
+ </article> : route.kind==='authors' ? <div className="blog-grid">{authors.map(a=><Link className="blog-card" key={a.authorSlug} href={'/blog/authors/'+a.authorSlug}><h2>{a.author}</h2><p>{getPosts().filter(p=>p.authorSlug===a.authorSlug).length} articles</p></Link>)}</div> : <>
+  <p className="blog-intro">{route.description}</p>
+  <div className="blog-categories"><Link className="btn" href="/blog">All articles</Link>{categories.map(([slug,name])=><Link className="btn" key={slug} href={'/blog/category/'+slug}>{name}</Link>)}</div>
+  <div className="blog-grid">{posts.map(p=><Link className="blog-card" key={p.slug} href={'/blog/'+p.slug} lang={p.language}><span className="blog-meta">{LANGUAGES[p.language]} · {p.minutes} min</span><h2>{p.title}</h2><p>{p.description}</p><span>Read article →</span></Link>)}</div>
+  {!posts.length&&<p>No published articles yet.</p>}
+  {route.pages>1&&<nav className="blog-pagination" aria-label="Pagination">{route.page>1&&<Link className="btn" href={route.page===2?route.base:route.base+'/page/'+(route.page-1)}>← Previous</Link>}<span>{route.page} / {route.pages}</span>{route.page<route.pages&&<Link className="btn" href={route.base+'/page/'+(route.page+1)}>Next →</Link>}</nav>}
+ </>}
  </main>;
 }
