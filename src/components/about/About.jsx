@@ -1,7 +1,7 @@
 import { usePortfolioLanguage } from "../../lib/language";
 import React, { useState, useEffect, useRef } from "react";
 import "./about.css";
-const ME = "/assets/me-about.jpg";
+const ME = "/assets/me-about.webp";
 import { FaAward } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
 import { VscFolderLibrary } from "react-icons/vsc";
