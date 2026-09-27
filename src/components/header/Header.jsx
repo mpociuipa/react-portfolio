@@ -222,11 +222,7 @@ const Header = () => {
             <motion.div
               className="me"
               style={{ y: reduce ? 0 : arcY }}
-              initial={
-                reduce ? { opacity: 1 } : { opacity: 0, y: 20, scale: 0.98 }
-              }
-              animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
-              transition={reduce ? {} : { duration: 0.9, ease, delay: 0.18 }}
+              initial={false}
               whileHover={
                 reduce
                   ? {}
@@ -245,6 +241,7 @@ const Header = () => {
                 sizes="(max-width: 600px) 90vw, 400px"
                 quality={75}
                 priority
+                fetchPriority="high"
               />
             </motion.div>
           </div>
