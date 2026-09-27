@@ -195,7 +195,7 @@ const Header = () => {
           <motion.h5 {...reveal(0.08, 10)}>{t.hello}</motion.h5>
           <motion.h1 {...reveal(0.14, 12)}>Mantas Počiuipa</motion.h1>
 
-          <motion.h5
+          <motion.div
             className="text-light header__skills"
             variants={skillsWrap}
             initial="initial"
@@ -210,7 +210,7 @@ const Header = () => {
                 {skill}
               </motion.span>
             ))}
-          </motion.h5>
+          </motion.div>
 
           <motion.div {...reveal(0.32, 16)}>
             <CTA onLetsTalkClick={smoothScrollTo("#contact")} />

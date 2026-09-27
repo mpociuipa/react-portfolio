@@ -224,7 +224,7 @@ const Testimonials = () => {
               <div className="client__avatar">
                 <img src={avatars[i]} alt={name} loading="lazy" />
               </div>
-              <h5 className="client__name">{name}</h5>
+              <p className="client__name">{name}</p>
               <span className="client__role">{t.roles[i]}</span>
               <p className="client__review">{t.reviews[i]}</p>
             </SwiperSlide>
