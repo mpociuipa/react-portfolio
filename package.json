@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.34.3",
     "gray-matter": "^4.0.3",
